@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Tests\Unit\Repository;
+namespace App\Tests\Feature\Repository;
 
 use App\DataFixtures\ContactsFixture;
 use App\Entity\Contact;

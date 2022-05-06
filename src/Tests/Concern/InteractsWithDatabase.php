@@ -4,6 +4,7 @@ namespace App\Tests\Concern;
 
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\Tools\SchemaTool;
+use Doctrine\ORM\Tools\ToolsException;
 
 /**
  * Trait InteractsWithDatabase
@@ -17,11 +18,20 @@ trait InteractsWithDatabase
      */
     protected $schemaTool;
 
+    /**
+     * @param EntityManager $entityManager
+     * @return SchemaTool
+     */
     protected function getSchemaTool(EntityManager $entityManager): SchemaTool
     {
         return new SchemaTool($entityManager);
     }
 
+    /**
+     * @param EntityManager $entityManager
+     * @param array $entityClasses
+     * @return array
+     */
     protected function getClassMetadataCollection(EntityManager $entityManager, array $entityClasses): array
     {
         $classes = [];
@@ -35,21 +45,22 @@ trait InteractsWithDatabase
         return $classes;
     }
 
+    /**
+     * @param SchemaTool $schemaTool
+     * @param array $classes
+     * @throws ToolsException
+     */
     protected function createTables(SchemaTool $schemaTool, array $classes)
     {
-        if (empty($classes)) {
-            return;
-        }
-
         $schemaTool->createSchema($classes);
     }
 
+    /**
+     * @param SchemaTool $schemaTool
+     * @param array $classes
+     */
     protected function dropTables(SchemaTool $schemaTool, array $classes)
     {
-        if (empty($classes)) {
-            return;
-        }
-
         $schemaTool->dropSchema($classes);
     }
 }
