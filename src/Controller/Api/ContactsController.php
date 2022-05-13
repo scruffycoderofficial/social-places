@@ -4,22 +4,28 @@ namespace App\Controller\Api;
 
 use App\Entity\Contact;
 use Psr\Log\LoggerInterface;
+use Symfony\Component\Mime\Email;
 use App\Repository\ContactRepository;
 use Doctrine\ORM\Exception\ORMException;
 use Doctrine\ORM\OptimisticLockException;
+use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\JsonResponse;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Mailer\Exception\TransportExceptionInterface;
 
 /**
  * Class ContactsController
  *
  * @package App\Controller\Api
  */
-class ContactsController extends AbstractController
+class ContactsController extends ApiController
 {
+    /**
+     * @var MailerInterface
+     */
+    private $mailer;
+
     /**
      * @var LoggerInterface
      */
@@ -36,15 +42,17 @@ class ContactsController extends AbstractController
      * @param LoggerInterface $logger
      * @param ContactRepository $contactRepository
      */
-    public function __construct(LoggerInterface $logger, ContactRepository $contactRepository)
+    public function __construct(ContactRepository $contactRepository, LoggerInterface $logger, MailerInterface $mailer)
     {
+        $this->contactRepository = $contactRepository;
+
         $this->logger = $logger;
 
-        $this->contactRepository = $contactRepository;
+        $this->mailer = $mailer;
     }
 
     /**
-     * @Route("/api/contacts")
+     * @return JsonResponse
      */
     public function index(): JsonResponse
     {
@@ -58,42 +66,46 @@ class ContactsController extends AbstractController
     }
 
     /**
-     * @Route("/api/contact")
+     * @throws TransportExceptionInterface
      */
     public function add(Request $request): JsonResponse
     {
-        $data = $request->request->all();
-
-        if (empty($data)) {
-            return $this->json('Missing required data.', Response::HTTP_NO_CONTENT);
-        } else {
-            if ($success = $this->createContact($data)) {
-                return $this->json(['success' => true], Response::HTTP_OK);
-            }
-        }
-    }
-
-    private function createContact(array $data): bool
-    {
-        $success = false;
+        $request = $this->transformJsonBody($request);
 
         try {
 
             $contact = new Contact();
 
-            $contact->setName($data['name']);
-            $contact->setEmail($data['email']);
-            $contact->setGender($data['gender']);
-            $contact->setContent($data['content']);
+            $contact->setName($request->get('name'));
+            $contact->setEmail($request->get('email'));
+            $contact->setGender($request->get('gender'));
+            $contact->setContent($request->get('content'));
 
-            $this->contactRepository->add($contact);
-
-            $success = true;
+            $this->contactRepository->add($contact, true);
 
         } catch (OptimisticLockException | ORMException $e) {
-            $this->logger->warning($e->getMessage());
-        } finally{
-            return $success;
+
+            $this->logger->error($e->getMessage());
         }
+
+        $result = $this->contactRepository->findByEmail($request->get('email'));
+
+        $userExists = !empty($result);
+
+        if ($userExists) {
+
+            $email = (new Email())
+                ->from('no-reply@assessments.com')
+                ->to($request->get('email'))
+                ->subject('Social Places Assessment Demo')
+                ->text('Welcome to Social Places Assessment Demo.')
+                ->html('<p>Welcome to Social Places Assessment Demo.</p>');
+
+            $this->mailer->send($email);
+
+            return $this->json($result, Response::HTTP_CREATED);
+        }
+
+        return $this->json([], Response::HTTP_UNPROCESSABLE_ENTITY);
     }
 }

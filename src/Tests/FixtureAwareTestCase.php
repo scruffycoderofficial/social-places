@@ -2,11 +2,11 @@
 
 namespace App\Tests;
 
-use Doctrine\Common\DataFixtures\Executor\ORMExecutor;
 use Doctrine\Common\DataFixtures\FixtureInterface;
 use Doctrine\Common\DataFixtures\Purger\ORMPurger;
-use Symfony\Bridge\Doctrine\DataFixtures\ContainerAwareLoader;
+use Doctrine\Common\DataFixtures\Executor\ORMExecutor;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
+use Symfony\Bridge\Doctrine\DataFixtures\ContainerAwareLoader;
 
 /**
  * Class FixtureAwareTestCase

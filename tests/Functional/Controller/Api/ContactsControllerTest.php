@@ -2,38 +2,19 @@
 
 namespace App\Tests\Functional\Controller\Api;
 
+use App\Tests\TestCase;
 use App\DataFixtures\ContactsFixture;
-use App\Entity\Contact;
-use App\Tests\Concern\InteractsWithDatabase;
-use App\Tests\FixtureAwareTestCase;
 
-class ContactsControllerTest extends FixtureAwareTestCase
+class ContactsControllerTest extends TestCase
 {
-    use InteractsWithDatabase;
-
-    private $entityClasses;
-
-    private $entityManager;
-
     private $client;
 
     /**
      * {@inheritDoc}
-     * @throws \Doctrine\ORM\Tools\ToolsException
      */
     protected function setUp(): void
     {
-        $this->entityManager = $this->getContainer()->get('doctrine')->getManager();
-
-        $this->client = self::$kernel->getContainer()->get('test.client');
-
-        $this->schemaTool = $this->getSchemaTool($this->entityManager);
-
-        $this->entityClasses = $this->getClassMetadataCollection($this->entityManager, [
-            Contact::class,
-        ]);
-
-        $this->createTables($this->schemaTool, $this->entityClasses);
+        parent::setUp();
 
         $this->addFixture(new ContactsFixture());
         $this->executeFixtures();
@@ -59,13 +40,16 @@ class ContactsControllerTest extends FixtureAwareTestCase
 
         $response = $this->client->getResponse();
 
-        $this->assertTrue(json_decode($response->getContent(), 1)['success']);
+        $data = json_decode($response->getContent(), true)[0];
+
+        $this->assertSame('Luyanda Siko', $data['name']);
+        $this->assertSame('sikoluyanda@gmail.com', $data['email']);
+        $this->assertSame('male', $data['gender']);
+        $this->assertSame('This contact should be persisted', $data['content']);
     }
 
     protected function tearDown(): void
     {
         parent::tearDown();
-
-        $this->dropTables($this->schemaTool, $this->entityClasses);
     }
 }

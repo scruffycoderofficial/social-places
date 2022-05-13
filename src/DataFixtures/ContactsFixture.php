@@ -19,7 +19,7 @@ class ContactsFixture extends Fixture
 
         $jDoe->setName('John Doe')
             ->setEmail('jdoe@example.com')
-            ->setGender('male') // Create an ENUM type for Gender, for example GenderType
+            ->setGender('male')
             ->setContent('Testing database functionality for John Doe.');
 
         $manager->persist($jDoe);
@@ -28,7 +28,7 @@ class ContactsFixture extends Fixture
 
         $mDoe->setName('Marry Doe')
             ->setEmail('mdoe@example.com')
-            ->setGender('female') // Create an ENUM type for Gender, for example GenderType
+            ->setGender('female')
             ->setContent('Testing database functionality for Mary Doe.');
 
         $manager->persist($mDoe);

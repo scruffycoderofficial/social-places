@@ -1,3 +1,25 @@
 #index:
 #    path: /
 #    controller: App\Controller\DefaultController::index
+contacts:
+  path: /api/contacts
+  controller: App\Controller\Api\ContactsController::index
+  methods: GET
+
+contact:
+  path: /api/contact
+  controller: App\Controller\Api\ContactsController::add
+  methods: POST
+
+register:
+  path: /api/register
+  controller: App\Controller\Api\AuthController::register
+  methods: POST
+
+api_login_check:
+  path: /api/login_check
+  controller: App\Controller\Api\AuthController::getTokenUser
+
+test:
+  path: /api/test
+  controller: App\Controller\ApiController::test
