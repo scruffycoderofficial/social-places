@@ -1,0 +1,4 @@
+easy_admin:
+  entities:
+    App\Entity\User:
+      disabled_actions: ['new']

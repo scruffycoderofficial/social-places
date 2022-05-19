@@ -36,7 +36,7 @@ trait InteractsWithDatabase
     {
         $classes = [];
 
-        foreach ($entityClasses as $entityClass){
+        foreach ($entityClasses as $entityClass) {
             if (class_exists($entityClass)) {
                 array_push($classes, $entityManager->getClassMetadata($entityClass));
             }

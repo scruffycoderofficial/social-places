@@ -2,8 +2,11 @@
 
 namespace App\Entity;
 
+use DateTime;
+use Gedmo\Mapping\Annotation as Gedmo;
 use Doctrine\ORM\Mapping as ORM;
 use App\Repository\UserRepository;
+use JetBrains\PhpStorm\Pure;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\PasswordHasher\Hasher\PasswordHasherAwareInterface;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
@@ -20,10 +23,22 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface, Passwor
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
+
+    /**
+     * @ORM\Column(type="string", length=60)
+     */
+    private $firstName;
+
+    /**
+     * @ORM\Column(type="string", length=60)
+     */
+    private $lastName;
+
     /**
      * @ORM\Column(type="string", length=25, unique=true)
      */
     private $username;
+
     /**
      * @ORM\Column(type="string", length=255)
      */
@@ -35,12 +50,75 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface, Passwor
     private $email;
 
     /**
+     * @ORM\Column(type="string", length=60, nullable=true)
+     */
+    private $profileImageUrl;
+
+    /**
+     * @ORM\Column(type="boolean", options={"default":"0"})
+     */
+    private $isActive = false;
+
+    /**
+     * @var DateTime $created
+     *
+     * @Gedmo\Timestampable(on="create")
+     * @ORM\Column(type="datetime")
+     */
+    private $created;
+
+    /**
+     * @var DateTime $updated
+     *
+     * @Gedmo\Timestampable(on="update")
+     * @ORM\Column(type="datetime")
+     */
+    private $updated;
+
+    /**
      * User constructor.
      * @param $username
      */
-    public function __construct($username)
+    public function __construct($username = null)
     {
         $this->username = $username;
+    }
+
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getFirstName(): string
+    {
+        return $this->firstName;
+    }
+
+    /**
+     * @param string $firstName
+     */
+    public function setFirstName(string $firstName): void
+    {
+        $this->firstName = $firstName;
+    }
+
+    /**
+     * @return string
+     */
+    public function getLastName(): string
+    {
+        return $this->lastName;
+    }
+
+    /**
+     * @param mixed $lastName
+     */
+    public function setLastName(string $lastName): void
+    {
+        $this->lastName = $lastName;
     }
 
     /**
@@ -54,7 +132,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface, Passwor
     /**
      * @param mixed $username
      */
-    public function setUsername($username): void
+    public function setUsername(string $username): void
     {
         $this->username = $username;
     }
@@ -83,17 +161,17 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface, Passwor
         $this->password = $password;
     }
     /**
-     * @return mixed
+     * @return string
      */
-    public function getEmail()
+    public function getEmail(): string
     {
         return $this->email;
     }
 
     /**
-     * @param mixed $email
+     * @param string $email
      */
-    public function setEmail($email): void
+    public function setEmail(string $email): void
     {
         $this->email = $email;
     }
@@ -110,7 +188,8 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface, Passwor
     {
     }
 
-    public function getUserIdentifier()
+    #[Pure]
+    public function getUserIdentifier(): string
     {
         return $this->getEmail();
     }
@@ -118,5 +197,46 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface, Passwor
     public function getPasswordHasherName(): ?string
     {
         return null;
+    }
+
+    /**
+     * @return string
+     */
+    public function getProfileImageUrl(): string
+    {
+        return $this->profileImageUrl;
+    }
+
+    /**
+     * @param mixed $profileImageUrl
+     */
+    public function setProfileImageUrl(string $profileImageUrl): void
+    {
+        $this->profileImageUrl = $profileImageUrl;
+    }
+
+    public function setActive(bool $active = false)
+    {
+        $this->isActive = $active;
+    }
+
+    public function getActive(): bool
+    {
+        return $this->isActive;
+    }
+
+    public function getCreated(): DateTime
+    {
+        return $this->created;
+    }
+
+    public function getUpdated(): DateTime
+    {
+        return $this->updated;
+    }
+
+    public function __toString(): string
+    {
+        return $this->firstName . ' ' . $this->lastName;
     }
 }

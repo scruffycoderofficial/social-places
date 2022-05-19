@@ -32,3 +32,8 @@ public/build/
 ###> lexik/jwt-authentication-bundle ###
 /config/jwt/*.pem
 ###< lexik/jwt-authentication-bundle ###
+
+###> miscelleneous ###
+.php-cs-fixer.cache
+tools
+###< miscelleneous ###

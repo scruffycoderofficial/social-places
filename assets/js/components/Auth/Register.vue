@@ -9,6 +9,36 @@
       <form name="form" @submit.prevent="handleRegister">
         <div v-if="!successful">
           <div class="form-group">
+            <label for="firstname">First Name</label>
+            <input
+                v-model="user.firstname"
+                v-validate="'required|min:3|max:20'"
+                type="text"
+                class="form-control"
+                name="firstname"
+            />
+            <div
+                v-if="submitted && errors.has('firstname')"
+                class="alert-danger"
+            >{{errors.first('firstname')}}</div>
+          </div>
+
+          <div class="form-group">
+            <label for="lastname">Last Name</label>
+            <input
+                v-model="user.lastname"
+                v-validate="'required|min:3|max:20'"
+                type="text"
+                class="form-control"
+                name="lastname"
+            />
+            <div
+                v-if="submitted && errors.has('lastname')"
+                class="alert-danger"
+            >{{errors.first('lastname')}}</div>
+          </div>
+
+          <div class="form-group">
             <label for="username">Username</label>
             <input
                 v-model="user.username"
@@ -22,6 +52,7 @@
                 class="alert-danger"
             >{{errors.first('username')}}</div>
           </div>
+
           <div class="form-group">
             <label for="email">Email</label>
             <input
@@ -36,6 +67,7 @@
                 class="alert-danger"
             >{{errors.first('email')}}</div>
           </div>
+
           <div class="form-group">
             <label for="password">Password</label>
             <input
@@ -50,6 +82,7 @@
                 class="alert-danger"
             >{{errors.first('password')}}</div>
           </div>
+
           <div class="form-group">
             <button class="btn btn-primary btn-block">Sign Up</button>
           </div>
@@ -70,7 +103,7 @@ export default {
   name: 'Register',
   data() {
     return {
-      user: new User('', '', ''),
+      user: new User('', '', '', '', ''),
       submitted: false,
       successful: false,
       message: ''

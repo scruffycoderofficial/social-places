@@ -73,7 +73,6 @@ class ContactsController extends ApiController
         $request = $this->transformJsonBody($request);
 
         try {
-
             $contact = new Contact();
 
             $contact->setName($request->get('name'));
@@ -82,9 +81,7 @@ class ContactsController extends ApiController
             $contact->setContent($request->get('content'));
 
             $this->contactRepository->add($contact, true);
-
         } catch (OptimisticLockException | ORMException $e) {
-
             $this->logger->error($e->getMessage());
         }
 
@@ -93,7 +90,6 @@ class ContactsController extends ApiController
         $userExists = !empty($result);
 
         if ($userExists) {
-
             $email = (new Email())
                 ->from('no-reply@assessments.com')
                 ->to($request->get('email'))

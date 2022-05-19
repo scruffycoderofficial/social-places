@@ -49,23 +49,25 @@ class AuthController extends ApiController
     {
         $request = $this->transformJsonBody($request);
 
+        $firstName = $request->get('firstname');
+        $lastName = $request->get('lastname');
         $username = $request->get('username');
         $password = $request->get('password');
         $email = $request->get('email');
 
-        if (empty($username) || empty($password) || empty($email)){
+        if (empty($username) || empty($password) || empty($email)) {
             return $this->respondValidationError("Invalid Username or Password or Email");
         }
 
         try {
-
             $user = new User($username);
 
+            $user->setFirstName($firstName);
+            $user->setLastName($lastName);
             $user->setPassword($encoder->encodePassword($user, $password));
             $user->setEmail($email);
             $user->setUsername($username);
             $this->userRepository->add($user, true);
-
         } catch (OptimisticLockException | ORMException $e) {
             $this->logger->error($e->getMessage());
         }
