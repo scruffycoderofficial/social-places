@@ -6,7 +6,6 @@ use DateTime;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Doctrine\ORM\Mapping as ORM;
 use App\Repository\UserRepository;
-use JetBrains\PhpStorm\Pure;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\PasswordHasher\Hasher\PasswordHasherAwareInterface;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
@@ -84,7 +83,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface, Passwor
         $this->username = $username;
     }
 
-    public function getId()
+    public function getId(): ?int
     {
         return $this->id;
     }
@@ -188,7 +187,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface, Passwor
     {
     }
 
-    #[Pure]
     public function getUserIdentifier(): string
     {
         return $this->getEmail();

@@ -7,6 +7,7 @@ use App\Repository\ContactRepository;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
+ * @ORM\Table(name="contacts")
  * @ORM\Entity(repositoryClass=ContactRepository::class)
  */
 class Contact

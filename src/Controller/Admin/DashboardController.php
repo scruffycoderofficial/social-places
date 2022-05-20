@@ -2,6 +2,7 @@
 
 namespace App\Controller\Admin;
 
+use App\Entity\Meeting;
 use App\Entity\User;
 use App\Entity\Contact;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
@@ -30,13 +31,17 @@ class DashboardController extends AbstractDashboardController
     {
         yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');
 
-        yield MenuItem::subMenu('Users', 'fa fa-users')->setSubItems([
+        yield MenuItem::subMenu('Talent', 'fa fa-users')->setSubItems([
             MenuItem::linkToCrud('List', 'fas fa-list', User::class),
 
         ]);
 
-        yield MenuItem::subMenu('Contacts', 'fa-solid fa-address-book')->setSubItems([
+        yield MenuItem::subMenu('AddressBook', 'fa-solid fa-address-book')->setSubItems([
             MenuItem::linkToCrud('List', 'fas fa-list', Contact::class),
+        ]);
+
+        yield MenuItem::subMenu('Meetings', 'fa-solid fa-handshake')->setSubItems([
+            MenuItem::linkToCrud('List', 'fas fa-list', Meeting::class),
         ]);
     }
 }
