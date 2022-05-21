@@ -11,7 +11,7 @@ use Symfony\Component\PasswordHasher\Hasher\PasswordHasherAwareInterface;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 
 /**
- * @ORM\Table(name="users")
+ * @ORM\Table(name="adm_users")
  * @ORM\Entity(repositoryClass=UserRepository::class)
  */
 class User implements UserInterface, PasswordAuthenticatedUserInterface, PasswordHasherAwareInterface

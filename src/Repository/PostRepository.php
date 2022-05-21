@@ -4,6 +4,7 @@ namespace App\Repository;
 
 use App\Entity\Post;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\NonUniqueResultException;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
@@ -39,28 +40,65 @@ class PostRepository extends ServiceEntityRepository
         }
     }
 
-//    /**
-//     * @return Post[] Returns an array of Post objects
-//     */
-//    public function findByExampleField($value): array
-//    {
-//        return $this->createQueryBuilder('p')
-//            ->andWhere('p.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->orderBy('p.id', 'ASC')
-//            ->setMaxResults(10)
-//            ->getQuery()
-//            ->getResult()
-//        ;
-//    }
+    /**
+     * Finds a post with its comments
+     *
+     * @param $id
+     * @return int|mixed|string|null
+     */
+    public function findWithComments($id): mixed
+    {
+        $result = null;
 
-//    public function findOneBySomeField($value): ?Post
-//    {
-//        return $this->createQueryBuilder('p')
-//            ->andWhere('p.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->getQuery()
-//            ->getOneOrNullResult()
-//        ;
-//    }
+        try {
+
+            $result = $this
+                ->createQueryBuilder('p')
+                ->addSelect('c')
+                ->leftJoin('p.comments', 'c')
+                ->where('p.id = :id')
+                ->orderBy('c.publicationDate', 'ASC')
+                ->setParameter('id', $id)
+                ->getQuery()
+                ->getOneOrNullResult();
+        } catch (NonUniqueResultException $e) {
+            // Log issues here
+        }
+
+        return $result;
+    }
+
+    public function findWithCommentCount()
+    {
+        return $this
+            ->createQueryBuilder('p')
+            ->leftJoin('p.comments', 'c')
+            ->addSelect('COUNT(c.id)')
+            ->groupBy('p.id')
+            ->getQuery()
+            ->getResult();
+    }
+
+    /**
+     * Finds posts having tags
+     *
+     * @param string[] $tagNames
+     * @return Post[]
+     */
+    public function findHavingTags(array $tagNames): array
+    {
+        return $queryBuilder = $this
+            ->createQueryBuilder('p')
+            ->addSelect('t')
+            ->join('p.tags', 't')
+            ->where('t.name IN (:tagNames)')
+            ->groupBy('p.id')
+            ->having('COUNT(t.name) >= :numberOfTags')
+            ->setParameter('tagNames', $tagNames)
+            ->setParameter('numberOfTags',
+                count($tagNames))
+            ->getQuery()
+            ->getResult()
+            ;
+    }
 }

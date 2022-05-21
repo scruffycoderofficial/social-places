@@ -6,7 +6,7 @@ use App\Repository\MeetingRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Table(name="meetings")
+ * @ORM\Table(name="adm_meetings")
  * @ORM\Entity(repositoryClass=MeetingRepository::class)
  */
 class Meeting
