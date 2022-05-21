@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Entity;
+namespace App\Entity\Blog;
 
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -40,7 +40,7 @@ class PostAuthor extends Author
     /**
      * @return string
      */
-    public function getBio(): strin g
+    public function getBio(): string
     {
         return $this->bio;
     }

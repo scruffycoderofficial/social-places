@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Entity;
+namespace App\Entity\Admin;
 
 use Doctrine\ORM\Mapping as ORM;
 use App\Repository\ContactRepository;

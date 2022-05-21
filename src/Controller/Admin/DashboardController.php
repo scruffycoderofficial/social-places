@@ -33,21 +33,20 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');
 
         yield MenuItem::section('Management');
-
         yield MenuItem::subMenu('People', 'fa fa-users')->setSubItems([
             MenuItem::linkToCrud('List', 'fas fa-list', User::class),
 
         ]);
-
         yield MenuItem::subMenu('Clients', 'fa-solid fa-address-book')->setSubItems([
             MenuItem::linkToCrud('List', 'fas fa-list', Contact::class),
         ]);
 
+        yield MenuItem::section('Administration');
         yield MenuItem::subMenu('Meetings', 'fa-solid fa-handshake')->setSubItems([
             MenuItem::linkToCrud('List', 'fas fa-list', Meeting::class),
         ]);
 
-        yield MenuItem::section('Builder');
+        yield MenuItem::section('Platform');
 
         yield MenuItem::section('Resources');
         yield MenuItem::linkToCrud('Blog', 'fas fa-list', Post::class);

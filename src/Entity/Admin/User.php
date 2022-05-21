@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Entity;
+namespace App\Entity\Admin;
 
 use DateTime;
 use Gedmo\Mapping\Annotation as Gedmo;

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Entity;
+namespace App\Entity\Blog;
 
 use Doctrine\ORM\Mapping as ORM;
 use App\Repository\CommentRepository;

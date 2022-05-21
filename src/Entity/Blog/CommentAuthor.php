@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Entity;
+namespace App\Entity\Blog;
 
 /**
  * @package App\Entity
