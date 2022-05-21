@@ -33,6 +33,11 @@ class Comment
      */
     private $post;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="CommentAuthor", inversedBy="comments")
+     */
+    protected $author;
+
     public function getId(): ?int
     {
         return $this->id;

@@ -4,9 +4,6 @@ namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use App\Repository\PostRepository;
-use Doctrine\ORM\Mapping\JoinTable;
-use Doctrine\ORM\Mapping\JoinColumn;
-use Doctrine\ORM\Mapping\ManyToMany;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\Common\Collections\ArrayCollection;
 
@@ -44,10 +41,17 @@ class Post
     private $comments;
 
     /**
-     * @ManyToMany(targetEntity="Tag", inversedBy="posts", fetch="EAGER", cascade={"persist"}, orphanRemoval=true)
-     * @JoinTable(inverseJoinColumns={@JoinColumn(name="tag_name", referencedColumnName="name")})
+     * @ORM\ManyToMany(targetEntity="Tag", inversedBy="posts", fetch="EAGER", cascade={"persist"}, orphanRemoval=true)
+     * @ORM\JoinTable(inverseJoinColumns={@ORM\JoinColumn(name="tag_name", referencedColumnName="name")})
      */
     private $tags;
+
+    /**
+     * @var PostAuthor
+     *
+     * @ORM\ManyToOne(targetEntity="PostAuthor", inversedBy="posts")
+     */
+    protected $author;
 
     /**
      * Post constructor.
@@ -106,6 +110,14 @@ class Post
     public function getComments(): Collection
     {
         return $this->comments;
+    }
+
+    /**
+     * @return Collection<int, Tag>
+     */
+    public function getTags(): Collection
+    {
+        return $this->tags;
     }
 
     public function addComment(Comment $comment): self
