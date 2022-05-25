@@ -2,7 +2,7 @@
 
 namespace App\Entity\Admin;
 
-use App\Repository\MeetingRepository;
+use App\Repository\Admin\MeetingRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**

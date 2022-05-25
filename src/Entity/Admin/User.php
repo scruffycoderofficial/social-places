@@ -3,9 +3,9 @@
 namespace App\Entity\Admin;
 
 use DateTime;
-use Gedmo\Mapping\Annotation as Gedmo;
 use Doctrine\ORM\Mapping as ORM;
-use App\Repository\UserRepository;
+use Gedmo\Mapping\Annotation as Gedmo;
+use App\Repository\Admin\UserRepository;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\PasswordHasher\Hasher\PasswordHasherAwareInterface;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
@@ -200,7 +200,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface, Passwor
     /**
      * @return string
      */
-    public function getProfileImageUrl(): string
+    public function getProfileImageUrl(): ?string
     {
         return $this->profileImageUrl;
     }

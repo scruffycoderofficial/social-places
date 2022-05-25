@@ -1,15 +1,15 @@
 <?php
 
-namespace App\Tests\Feature\Repository;
+namespace App\Tests\Feature\Repository\Admin;
 
-use App\Entity\Contact;
 use App\Tests\TestCase;
-use App\DataFixtures\ContactsFixture;
+use App\Entity\Admin\Contact;
+use App\DataFixtures\Admin\ContactsFixture;
 
 /**
  * Class ContactRepositoryTest
  *
- * @package App\Tests\Unit\Repository
+ * @package App\Tests\Feature\Repository\Admin
  */
 class ContactRepositoryTest extends TestCase
 {

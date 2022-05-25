@@ -3,7 +3,7 @@
 namespace App\Entity\Admin;
 
 use Doctrine\ORM\Mapping as ORM;
-use App\Repository\ContactRepository;
+use App\Repository\Admin\ContactRepository;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
