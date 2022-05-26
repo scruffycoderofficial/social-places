@@ -2,10 +2,10 @@
 
 namespace BeyondCapable\Application\Controller\Api;
 
-use BeyondCapable\Entity\Admin\Contact;
+use BeyondCapable\Domain\Entity\Admin\Contact;
 use Psr\Log\LoggerInterface;
 use Symfony\Component\Mime\Email;
-use BeyondCapable\Repository\Admin\ContactRepository;
+use BeyondCapable\Domain\Entity\Repository\Admin\ContactRepository;
 use Doctrine\ORM\Exception\ORMException;
 use Doctrine\ORM\OptimisticLockException;
 use Symfony\Component\Mailer\MailerInterface;

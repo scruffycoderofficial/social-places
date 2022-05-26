@@ -1,28 +1,2 @@
 framework:
-    workflows:
-        meeting:
-            type: 'state_machine'
-            audit_trail:
-                enabled: true
-            marking_store:
-                type: 'method'
-                property: 'status'
-            supports:
-                - BeyondCapable\Entity\Admin\Meeting\Meeting
-            initial_marking: pending
-            places:
-                - pending
-                - review
-                - approve
-                - reject
-                - cancelled
-            transitions:
-                approve:
-                    from: pending
-                    to: approve
-                reject:
-                    from: pending
-                    to: reject
-                cancel:
-                    from: [ pending, approve, reject ]
-                    to: cancelled
+    workflows: ~

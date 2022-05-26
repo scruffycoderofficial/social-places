@@ -1,20 +1,12 @@
 <?php
 
-namespace App\Tests;
+namespace BeyondCapable\Tests;
 
-use App\Entity\Admin\Meeting;
-use App\Entity\Admin\User;
-use App\Entity\Admin\Contact;
-use App\Entity\Blog\Author;
-use App\Entity\Blog\Comment;
-use App\Entity\Blog\CommentAuthor;
-use App\Entity\Blog\Post;
-use App\Entity\Blog\PostAuthor;
-use App\Entity\Blog\Tag;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\Tools\SchemaTool;
 use Doctrine\ORM\Tools\ToolsException;
-use App\Tests\Concern\InteractsWithDatabase;
+use BeyondCapable\Shared\TestWork\FixtureAwareTestCase;
+use BeyondCapable\Shared\TestWork\Concern\InteractsWithDatabase;
 
 abstract class TestCase extends FixtureAwareTestCase
 {
@@ -46,20 +38,7 @@ abstract class TestCase extends FixtureAwareTestCase
 
         $this->schemaTool = $this->getSchemaTool($this->entityManager);
 
-        /**
-         * We expect to have two database tables here contacts and users respectively
-         */
-        $this->entityClasses = $this->getClassMetadataCollection($this->entityManager, [
-            Contact::class,
-            Meeting::class,
-            User::class,
-
-            Comment::class,
-            CommentAuthor::class,
-            Post::class,
-            PostAuthor::class,
-            Tag::class,
-        ]);
+        $this->entityClasses = $this->getClassMetadataCollection($this->entityManager, $this->getClassEntities());
 
         $this->createTables($this->schemaTool, $this->entityClasses);
     }
@@ -72,5 +51,22 @@ abstract class TestCase extends FixtureAwareTestCase
         parent::tearDown();
 
         $this->dropTables($this->schemaTool, $this->entityClasses);
+    }
+
+    private function getClassEntities(): array
+    {
+        return [
+            \BeyondCapable\Domain\Entity\Admin\User::class,
+            \BeyondCapable\Domain\Entity\Admin\Contact::class,
+
+            \BeyondCapable\Domain\Entity\Admin\Meeting\Meeting::class,
+
+            \BeyondCapable\Domain\Entity\Blog\Author::class,
+            \BeyondCapable\Domain\Entity\Blog\Comment::class,
+            \BeyondCapable\Domain\Entity\Blog\CommentAuthor::class,
+            \BeyondCapable\Domain\Entity\Blog\Post::class,
+            \BeyondCapable\Domain\Entity\Blog\PostAuthor::class,
+            \BeyondCapable\Domain\Entity\Blog\Tag::class,
+        ];
     }
 }
