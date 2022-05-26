@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Entity\Blog\Event\Listener;
+namespace BeyondCapable\Entity\Blog\Event\Listener;
 
-use App\Entity\Comment;
+use BeyondCapable\Entity\Comment;
 use Doctrine\Persistence\Event\LifecycleEventArgs;
 
 /**

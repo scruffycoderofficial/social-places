@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Entity\Admin;
+namespace BeyondCapable\Entity\Admin;
 
 use DateTime;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
-use App\Repository\Admin\UserRepository;
+use BeyondCapable\Repository\Admin\UserRepository;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\PasswordHasher\Hasher\PasswordHasherAwareInterface;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;

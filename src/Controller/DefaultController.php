@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller;
+namespace BeyondCapable\Controller;
 
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;

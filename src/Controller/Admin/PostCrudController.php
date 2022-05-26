@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Controller\Admin;
+namespace BeyondCapable\Controller\Admin;
 
-use App\Entity\Blog\Post;
+use BeyondCapable\Entity\Blog\Post;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\DateTimeField;

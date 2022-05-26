@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Entity\Blog\Event\Subscriber;
+namespace BeyondCapable\Entity\Blog\Event\Subscriber;
 
-use App\Entity\Comment;
+use BeyondCapable\Entity\Comment;
 use Doctrine\ORM\Events;
 use Doctrine\Common\EventSubscriber;
 use Doctrine\ORM\Event\LifecycleEventArgs;

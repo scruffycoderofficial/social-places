@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace BeyondCapable;
 
 use Symfony\Component\HttpKernel\Kernel as BaseKernel;
 use Symfony\Bundle\FrameworkBundle\Kernel\MicroKernelTrait;

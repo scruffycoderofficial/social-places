@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Controller\Admin;
+namespace BeyondCapable\Controller\Admin;
 
-use App\Entity\Admin\User;
+use BeyondCapable\Entity\Admin\User;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;

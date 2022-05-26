@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Exception;
+namespace BeyondCapable\Exception;
 
 class MeetingStateException extends \Exception
 {

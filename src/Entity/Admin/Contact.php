@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Entity\Admin;
+namespace BeyondCapable\Entity\Admin;
 
 use Doctrine\ORM\Mapping as ORM;
-use App\Repository\Admin\ContactRepository;
+use BeyondCapable\Repository\Admin\ContactRepository;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**

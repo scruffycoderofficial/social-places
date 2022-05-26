@@ -1,6 +1,6 @@
 security:
     encoders:
-        App\Entity\User:
+        BeyondCapable\Entity\User:
             algorithm: bcrypt
     enable_authenticator_manager: true
     # https://symfony.com/doc/current/security.html#registering-the-user-hashing-passwords
@@ -11,7 +11,7 @@ security:
         users_in_memory: { memory: null }
         app_user_provider:
             entity:
-                class: App\Entity\User
+                class: BeyondCapable\Entity\User
                 property: username
 
     firewalls:

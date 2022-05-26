@@ -1,8 +1,8 @@
 <?php
 
-namespace App\DataFixtures\Blog;
+namespace BeyondCapable\DataFixtures\Blog;
 
-use App\Entity\Blog\Tag;
+use BeyondCapable\Entity\Blog\Tag;
 use Doctrine\Persistence\ObjectManager;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 

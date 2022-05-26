@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Controller\Admin;
+namespace BeyondCapable\Controller\Admin;
 
-use App\Entity\Admin\Contact;
+use BeyondCapable\Entity\Admin\Contact;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 
 /**

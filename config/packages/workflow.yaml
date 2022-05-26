@@ -8,7 +8,7 @@ framework:
                 type: 'method'
                 property: 'status'
             supports:
-                - App\Entity\Admin\Meeting\Meeting
+                - BeyondCapable\Entity\Admin\Meeting\Meeting
             initial_marking: pending
             places:
                 - pending

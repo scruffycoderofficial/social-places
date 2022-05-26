@@ -1,12 +1,12 @@
 <?php
 
-namespace App\DataFixtures\Blog;
+namespace BeyondCapable\DataFixtures\Blog;
 
 use DateTime;
-use App\Entity\Blog\Post;
-use App\Entity\Blog\Comment;
-use App\Entity\Blog\PostAuthor;
-use App\Entity\Blog\CommentAuthor;
+use BeyondCapable\Entity\Blog\Post;
+use BeyondCapable\Entity\Blog\Comment;
+use BeyondCapable\Entity\Blog\PostAuthor;
+use BeyondCapable\Entity\Blog\CommentAuthor;
 use Doctrine\Persistence\ObjectManager;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 

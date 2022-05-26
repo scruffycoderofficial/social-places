@@ -1,8 +1,8 @@
 <?php
 
-namespace App\DataFixtures\Admin;
+namespace BeyondCapable\DataFixtures\Admin;
 
-use App\Entity\Admin\User;
+use BeyondCapable\Entity\Admin\User;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 

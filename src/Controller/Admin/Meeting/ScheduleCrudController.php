@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Controller\Admin\Meeting;
+namespace BeyondCapable\Controller\Admin\Meeting;
 
-use App\Entity\Admin\Meeting\Schedule;
+use BeyondCapable\Entity\Admin\Meeting\Schedule;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 
 /**
