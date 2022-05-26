@@ -1,6 +1,6 @@
 <?php
 
-namespace BeyondCapable\Controller\Admin;
+namespace BeyondCapable\Application\Controller\Admin;
 
 use BeyondCapable\Entity\Admin\User;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;

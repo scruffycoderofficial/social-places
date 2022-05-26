@@ -1,6 +1,6 @@
 <?php
 
-namespace BeyondCapable\Controller\Admin\Meeting;
+namespace BeyondCapable\Application\Controller\Admin\Meeting;
 
 use BeyondCapable\Entity\Admin\Meeting\Request;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;

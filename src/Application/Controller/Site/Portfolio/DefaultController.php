@@ -1,23 +1,18 @@
 <?php
 
-namespace BeyondCapable\Controller;
+namespace BeyondCapable\Application\Controller\Site\Portfolio;
 
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
-/**
- * Class DefaultController
- *
- * @package App\Controller
- */
 class DefaultController extends AbstractController
 {
     /**
-     * @Route("/")
+     * @Route("/portfolio")
      */
     public function index(): Response
     {
-        return $this->render('home/index.html.twig');
+        return $this->render('site/portfolio/index.html.twig');
     }
 }

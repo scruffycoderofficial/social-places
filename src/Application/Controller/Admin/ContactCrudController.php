@@ -1,20 +1,20 @@
 <?php
 
-namespace BeyondCapable\Controller\Admin\Meeting;
+namespace BeyondCapable\Application\Controller\Admin;
 
-use BeyondCapable\Entity\Admin\Meeting\Meeting;
+use BeyondCapable\Entity\Admin\Contact;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 
 /**
- * Class MeetingCrudController
+ * Class ContactCrudController
  *
  * @package App\Controller\Admin
  */
-class MeetingCrudController extends AbstractCrudController
+class ContactCrudController extends AbstractCrudController
 {
     public static function getEntityFqcn(): string
     {
-        return Meeting::class;
+        return Contact::class;
     }
 
     /*

@@ -1,6 +1,6 @@
 <?php
 
-namespace BeyondCapable\Controller\Admin;
+namespace BeyondCapable\Application\Controller\Admin;
 
 use BeyondCapable\Entity\Blog\Tag;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;

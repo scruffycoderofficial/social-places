@@ -1,6 +1,6 @@
 <?php
 
-namespace BeyondCapable\Controller\Api;
+namespace BeyondCapable\Application\Controller\Api;
 
 use BeyondCapable\Entity\Admin\User;
 use Psr\Log\LoggerInterface;

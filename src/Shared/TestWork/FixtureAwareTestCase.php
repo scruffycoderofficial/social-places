@@ -1,6 +1,6 @@
 <?php
 
-namespace BeyondCapable\Tests;
+namespace BeyondCapable\Shared\TestWork;
 
 use Doctrine\Common\DataFixtures\FixtureInterface;
 use Doctrine\Common\DataFixtures\Purger\ORMPurger;

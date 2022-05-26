@@ -1,6 +1,6 @@
 <?php
 
-namespace BeyondCapable\Service\Admin;
+namespace BeyondCapable\Application\Service\Admin;
 
 use BeyondCapable\Entity\Admin\Meeting;
 

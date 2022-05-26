@@ -1,6 +1,6 @@
 <?php
 
-namespace BeyondCapable\Controller\Api;
+namespace BeyondCapable\Application\Controller\Api;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\JsonResponse;
