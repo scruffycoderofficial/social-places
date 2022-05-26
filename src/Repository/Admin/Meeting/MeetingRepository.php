@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Repository\Admin\Meeting;
+namespace BeyondCapable\Repository\Admin\Meeting;
 
-use App\Entity\Admin\Meeting\Meeting;
+use BeyondCapable\Entity\Admin\Meeting\Meeting;
 use Doctrine\Persistence\ManagerRegistry;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 

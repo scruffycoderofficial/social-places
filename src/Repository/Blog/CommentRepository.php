@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Repository\Blog;
+namespace BeyondCapable\Repository\Blog;
 
-use App\Entity\Blog\Comment;
+use BeyondCapable\Entity\Blog\Comment;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 

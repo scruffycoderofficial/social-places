@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller\Site\Portfolio;
+namespace BeyondCapable\Controller\Site\Portfolio;
 
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;

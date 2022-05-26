@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Controller\Api;
+namespace BeyondCapable\Controller\Api;
 
-use App\Entity\Admin\User;
+use BeyondCapable\Entity\Admin\User;
 use Psr\Log\LoggerInterface;
-use App\Repository\Admin\UserRepository;
+use BeyondCapable\Repository\Admin\UserRepository;
 use Doctrine\ORM\Exception\ORMException;
 use Doctrine\ORM\OptimisticLockException;
 use Symfony\Component\HttpFoundation\Request;

@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Service\Admin;
+namespace BeyondCapable\Service\Admin;
 
-use App\Entity\Admin\Meeting;
+use BeyondCapable\Entity\Admin\Meeting;
 
-use App\Exception\MeetingStateException;
+use BeyondCapable\Exception\MeetingStateException;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Workflow\WorkflowInterface;
 use Symfony\Component\Workflow\Exception\LogicException;
@@ -12,7 +12,7 @@ use Symfony\Component\Workflow\Exception\LogicException;
 /**
  * Class MeetingService
  *
- * @package App\Service
+ * @package BeyondCapable\Service
  */
 class MeetingService
 {

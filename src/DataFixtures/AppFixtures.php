@@ -1,6 +1,6 @@
 <?php
 
-namespace App\DataFixtures;
+namespace BeyondCapable\DataFixtures;
 
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;

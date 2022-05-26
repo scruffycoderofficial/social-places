@@ -75,12 +75,12 @@
     },
     "autoload": {
         "psr-4": {
-            "App\\": "src/"
+            "BeyondCapable\\": [ "src/", "core/" ]
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "App\\Tests\\": "tests/"
+            "BeyondCapable\\Tests\\": "tests/"
         }
     },
     "replace": {

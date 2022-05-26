@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Repository\Admin;
+namespace BeyondCapable\Repository\Admin;
 
-use App\Entity\Admin\Contact;
+use BeyondCapable\Entity\Admin\Contact;
 use Doctrine\ORM\Exception\ORMException;
 use Doctrine\ORM\OptimisticLockException;
 use Doctrine\Persistence\ManagerRegistry;

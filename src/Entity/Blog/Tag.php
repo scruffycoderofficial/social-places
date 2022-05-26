@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Entity\Blog;
+namespace BeyondCapable\Entity\Blog;
 
 use Doctrine\ORM\Mapping as ORM;
-use App\Repository\Blog\TagRepository;
+use BeyondCapable\Repository\Blog\TagRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 
 /**

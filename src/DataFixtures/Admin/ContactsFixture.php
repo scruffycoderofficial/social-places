@@ -1,8 +1,8 @@
 <?php
 
-namespace App\DataFixtures\Admin;
+namespace BeyondCapable\DataFixtures\Admin;
 
-use App\Entity\Admin\Contact;
+use BeyondCapable\Entity\Admin\Contact;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 

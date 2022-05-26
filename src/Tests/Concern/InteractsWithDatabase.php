@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Tests\Concern;
+namespace BeyondCapable\Tests\Concern;
 
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\Tools\SchemaTool;

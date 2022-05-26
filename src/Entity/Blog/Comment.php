@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Entity\Blog;
+namespace BeyondCapable\Entity\Blog;
 
 use DateTime;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
-use App\Repository\Blog\CommentRepository;
+use BeyondCapable\Repository\Blog\CommentRepository;
 
 /**
  * @ORM\Table(name="blog_post_comments")

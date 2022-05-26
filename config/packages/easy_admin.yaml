@@ -1,4 +1,4 @@
 easy_admin:
   entities:
-    App\Entity\User:
+    BeyondCapable\Entity\User:
       disabled_actions: ['new']

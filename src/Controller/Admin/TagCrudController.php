@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Controller\Admin;
+namespace BeyondCapable\Controller\Admin;
 
-use App\Entity\Blog\Tag;
+use BeyondCapable\Entity\Blog\Tag;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\SlugField;

@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Repository\Blog;
+namespace BeyondCapable\Repository\Blog;
 
-use App\Entity\Blog\Post;
+use BeyondCapable\Entity\Blog\Post;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\ORM\NonUniqueResultException;
 use Doctrine\Persistence\ManagerRegistry;

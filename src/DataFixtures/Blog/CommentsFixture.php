@@ -1,10 +1,10 @@
 <?php
 
-namespace App\DataFixtures\Blog;
+namespace BeyondCapable\DataFixtures\Blog;
 
 use DateTime;
 use Exception;
-use App\Entity\Blog\Comment;
+use BeyondCapable\Entity\Blog\Comment;
 use Doctrine\Persistence\ObjectManager;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 
