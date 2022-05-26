@@ -1,18 +1,17 @@
 <?php
 
-namespace App\Entity;
+namespace App\Entity\Admin;
 
 use DateTime;
-use Gedmo\Mapping\Annotation as Gedmo;
 use Doctrine\ORM\Mapping as ORM;
-use App\Repository\UserRepository;
-use JetBrains\PhpStorm\Pure;
+use Gedmo\Mapping\Annotation as Gedmo;
+use App\Repository\Admin\UserRepository;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\PasswordHasher\Hasher\PasswordHasherAwareInterface;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 
 /**
- * @ORM\Table(name="users")
+ * @ORM\Table(name="adm_users")
  * @ORM\Entity(repositoryClass=UserRepository::class)
  */
 class User implements UserInterface, PasswordAuthenticatedUserInterface, PasswordHasherAwareInterface
@@ -84,7 +83,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface, Passwor
         $this->username = $username;
     }
 
-    public function getId()
+    public function getId(): ?int
     {
         return $this->id;
     }
@@ -188,7 +187,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface, Passwor
     {
     }
 
-    #[Pure]
     public function getUserIdentifier(): string
     {
         return $this->getEmail();
@@ -202,7 +200,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface, Passwor
     /**
      * @return string
      */
-    public function getProfileImageUrl(): string
+    public function getProfileImageUrl(): ?string
     {
         return $this->profileImageUrl;
     }

@@ -2,10 +2,10 @@
 
 namespace App\Controller\Api;
 
-use App\Entity\Contact;
+use App\Entity\Admin\Contact;
 use Psr\Log\LoggerInterface;
 use Symfony\Component\Mime\Email;
-use App\Repository\ContactRepository;
+use App\Repository\Admin\ContactRepository;
 use Doctrine\ORM\Exception\ORMException;
 use Doctrine\ORM\OptimisticLockException;
 use Symfony\Component\Mailer\MailerInterface;

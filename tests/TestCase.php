@@ -2,8 +2,15 @@
 
 namespace App\Tests;
 
-use App\Entity\User;
-use App\Entity\Contact;
+use App\Entity\Admin\Meeting;
+use App\Entity\Admin\User;
+use App\Entity\Admin\Contact;
+use App\Entity\Blog\Author;
+use App\Entity\Blog\Comment;
+use App\Entity\Blog\CommentAuthor;
+use App\Entity\Blog\Post;
+use App\Entity\Blog\PostAuthor;
+use App\Entity\Blog\Tag;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\Tools\SchemaTool;
 use Doctrine\ORM\Tools\ToolsException;
@@ -44,12 +51,22 @@ abstract class TestCase extends FixtureAwareTestCase
          */
         $this->entityClasses = $this->getClassMetadataCollection($this->entityManager, [
             Contact::class,
+            Meeting::class,
             User::class,
+
+            Comment::class,
+            CommentAuthor::class,
+            Post::class,
+            PostAuthor::class,
+            Tag::class,
         ]);
 
         $this->createTables($this->schemaTool, $this->entityClasses);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     protected function tearDown(): void
     {
         parent::tearDown();

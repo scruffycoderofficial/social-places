@@ -2,13 +2,18 @@
 
 namespace App\Controller\Admin;
 
-use App\Entity\User;
-use App\Entity\Contact;
-use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
-use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
-use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
+use App\Entity\Blog\Tag;
+use App\Entity\Blog\Post;
+use App\Entity\Admin\User;
+use App\Entity\Admin\Contact;
+use App\Entity\Admin\Meeting\Meeting;
+use App\Entity\Admin\Meeting\Request;
+use App\Entity\Admin\Meeting\Schedule;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
+use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
 
 class DashboardController extends AbstractDashboardController
 {
@@ -21,22 +26,40 @@ class DashboardController extends AbstractDashboardController
     public function configureDashboard(): Dashboard
     {
         return Dashboard::new()
-            ->setTitle('Beyond Capable Admin')
+            ->setTitle('Capable Platform')
             ->disableDarkMode()
             ->generateRelativeUrls();
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public function configureMenuItems(): iterable
     {
         yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');
 
-        yield MenuItem::subMenu('Users', 'fa fa-users')->setSubItems([
+        yield MenuItem::section('Management');
+        yield MenuItem::subMenu('People', 'fa fa-users')->setSubItems([
             MenuItem::linkToCrud('List', 'fas fa-list', User::class),
 
         ]);
-
-        yield MenuItem::subMenu('Contacts', 'fa-solid fa-address-book')->setSubItems([
+        yield MenuItem::subMenu('Clients', 'fa-solid fa-address-book')->setSubItems([
             MenuItem::linkToCrud('List', 'fas fa-list', Contact::class),
+        ]);
+
+        yield MenuItem::section('Administration');
+        yield MenuItem::subMenu('Meetings', 'fa-solid fa-handshake')->setSubItems([
+            MenuItem::linkToCrud('Requests', 'fas fa-list', Request::class),
+            MenuItem::linkToCrud('Schedules', 'fas fa-list', Schedule::class),
+            MenuItem::linkToCrud('Meetings', 'fas fa-list', Meeting::class),
+        ]);
+
+        yield MenuItem::section('Platform Builder');
+
+        yield MenuItem::section('Resources');
+        yield MenuItem::subMenu('Vacancies', 'fas fa-list')->setSubItems([
+            MenuItem::linkToCrud('Jobs', 'fas fa-list', Post::class),
+            MenuItem::linkToCrud('Tags', 'fas fa-list', Tag::class),
         ]);
     }
 }

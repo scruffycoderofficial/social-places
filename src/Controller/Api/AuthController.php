@@ -2,19 +2,24 @@
 
 namespace App\Controller\Api;
 
-use App\Entity\User;
-use App\Repository\UserRepository;
+use App\Entity\Admin\User;
+use Psr\Log\LoggerInterface;
+use App\Repository\Admin\UserRepository;
 use Doctrine\ORM\Exception\ORMException;
 use Doctrine\ORM\OptimisticLockException;
-use Lexik\Bundle\JWTAuthenticationBundle\Services\JWTTokenManagerInterface;
-use Psr\Log\LoggerInterface;
-use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+use Lexik\Bundle\JWTAuthenticationBundle\Services\JWTTokenManagerInterface;
 
+/**
+ * Class AuthController
+ *
+ * @package App\Controller\Api
+ */
 class AuthController extends ApiController
 {
     /**

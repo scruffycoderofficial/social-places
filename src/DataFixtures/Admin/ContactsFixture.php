@@ -1,8 +1,8 @@
 <?php
 
-namespace App\DataFixtures;
+namespace App\DataFixtures\Admin;
 
-use App\Entity\Contact;
+use App\Entity\Admin\Contact;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 
@@ -13,6 +13,9 @@ use Doctrine\Persistence\ObjectManager;
  */
 class ContactsFixture extends Fixture
 {
+    /**
+     * {@inheritDoc}
+     */
     public function load(ObjectManager $manager)
     {
         $jDoe = new Contact();
