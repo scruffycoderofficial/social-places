@@ -2,4 +2,6 @@
 
 namespace App\Exception;
 
-class MeetingStateException extends \Exception{}
+class MeetingStateException extends \Exception
+{
+}

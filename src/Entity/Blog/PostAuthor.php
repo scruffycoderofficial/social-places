@@ -5,8 +5,8 @@ namespace App\Entity\Blog;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
 
-
 /**
+ * @ORM\Table(name="blog_post_authors")
  * @ORM\Entity
  */
 class PostAuthor extends Author
@@ -17,7 +17,7 @@ class PostAuthor extends Author
     protected $bio;
 
     /**
-     * @ORM\OneToMany(targetEntity="Post", mappedBy="postAuthor")
+     * @ORM\OneToMany(targetEntity="Post", mappedBy="author")
      */
     protected $posts;
 

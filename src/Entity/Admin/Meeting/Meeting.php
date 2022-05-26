@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Entity\Admin;
+namespace App\Entity\Admin\Meeting;
 
-use App\Repository\Admin\MeetingRepository;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\Admin\Meeting\MeetingRepository;
 
 /**
  * @ORM\Table(name="adm_meetings")

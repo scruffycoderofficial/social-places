@@ -5,7 +5,6 @@ namespace App\Entity\Blog;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Table(name="blog_authors")
  * @ORM\MappedSuperclass
  */
 abstract class Author
@@ -22,6 +21,11 @@ abstract class Author
      */
     protected $name;
 
+    /**
+     * @ORM\Column(type="string", length=45)
+     */
+    private $email;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -35,6 +39,18 @@ abstract class Author
     public function setName(string $name): self
     {
         $this->name = $name;
+
+        return $this;
+    }
+
+    public function getEmail(): ?string
+    {
+        return $this->email;
+    }
+
+    public function setEmail(string $email): self
+    {
+        $this->email = $email;
 
         return $this;
     }

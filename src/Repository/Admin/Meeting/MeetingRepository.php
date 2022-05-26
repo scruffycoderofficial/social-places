@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Repository\Admin;
+namespace App\Repository\Admin\Meeting;
 
-use App\Entity\Admin\Meeting;
-use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use App\Entity\Admin\Meeting\Meeting;
 use Doctrine\Persistence\ManagerRegistry;
+use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 
 /**
  * @extends ServiceEntityRepository<Meeting>

@@ -32,7 +32,6 @@ class MailAuthorOnCommentEventSubscriber implements EventSubscriber
         $entity = $args->getObject();
 
         if ($entity instanceof Comment) {
-
             if ($entity->getPost()->getAuthor() && $entity->getAuthor()) {
 
                 // Send an email to the Post Author

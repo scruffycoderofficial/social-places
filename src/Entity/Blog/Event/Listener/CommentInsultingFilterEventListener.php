@@ -5,7 +5,6 @@ namespace App\Entity\Blog\Event\Listener;
 use App\Entity\Comment;
 use Doctrine\Persistence\Event\LifecycleEventArgs;
 
-
 /**
  * Class CommentInsultingFilterEventListener
  *

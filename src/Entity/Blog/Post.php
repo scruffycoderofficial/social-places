@@ -3,7 +3,8 @@
 namespace App\Entity\Blog;
 
 use Doctrine\ORM\Mapping as ORM;
-use App\Repository\PostRepository;
+use Gedmo\Mapping\Annotation as Gedmo;
+use App\Repository\Blog\PostRepository;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\Common\Collections\ArrayCollection;
 
@@ -31,12 +32,13 @@ class Post
     private $body;
 
     /**
+     * @Gedmo\Timestampable(on="create")
      * @ORM\Column(type="datetime")
      */
     private $publicationDate;
 
     /**
-     * @ORM\OneToMany(targetEntity=Comment::class, mappedBy="post")
+     * @ORM\OneToMany(targetEntity="Comment", mappedBy="post")
      */
     private $comments;
 
@@ -139,5 +141,17 @@ class Post
         }
 
         return $this;
+    }
+
+    public function setAuthor($author): Post
+    {
+        $this->author = $author;
+
+        return $this;
+    }
+
+    public function getAuthor(): Author
+    {
+        return $this->author;
     }
 }

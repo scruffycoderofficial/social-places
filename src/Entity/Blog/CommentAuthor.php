@@ -2,13 +2,16 @@
 
 namespace App\Entity\Blog;
 
+use Doctrine\ORM\Mapping as ORM;
+
 /**
- * @package App\Entity
+ * @ORM\Table(name="blog_post_comment_authors")
+ * @ORM\Entity
  */
 class CommentAuthor extends Author
 {
     /**
-     * @OneToMany(targetEntity="Comment",mappedBy="commentAuthor")
+     * @ORM\OneToMany(targetEntity="Comment", mappedBy="author")
      */
     protected $comments;
 }

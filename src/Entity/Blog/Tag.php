@@ -3,7 +3,7 @@
 namespace App\Entity\Blog;
 
 use Doctrine\ORM\Mapping as ORM;
-use App\Repository\TagRepository;
+use App\Repository\Blog\TagRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 
 /**
@@ -14,9 +14,16 @@ class Tag
 {
     /**
      * @ORM\Id
-     * @ORM\Column(type="string", length=255)
+     * @ORM\GeneratedValue
+     * @ORM\Column(type="integer")
      */
-    private $name;
+    private ?int $id = null;
+
+    /**
+     * @ORM\Column(type="string", unique=true)
+     */
+
+    private ?string $name = null;
 
     /**
      * @ORM\ManyToMany(targetEntity="Post", mappedBy="tags")
@@ -29,6 +36,11 @@ class Tag
     public function __construct()
     {
         $this->posts = new ArrayCollection();
+    }
+
+    public function getId(): ?int
+    {
+        return $this->id;
     }
 
     public function getName(): ?string

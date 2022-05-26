@@ -1,8 +1,8 @@
 <?php
 
-namespace App\DataFixtures\Admin;
+namespace App\DataFixtures\Admin\Meeting;
 
-use App\Entity\Admin\Meeting;
+use App\Entity\Admin\Meeting\Meeting;
 use Doctrine\Persistence\ObjectManager;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 

@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Repository;
+namespace App\Repository\Blog;
 
-use App\Entity\Post;
+use App\Entity\Blog\Post;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\ORM\NonUniqueResultException;
 use Doctrine\Persistence\ManagerRegistry;
@@ -51,7 +51,6 @@ class PostRepository extends ServiceEntityRepository
         $result = null;
 
         try {
-
             $result = $this
                 ->createQueryBuilder('p')
                 ->addSelect('c')
@@ -95,8 +94,10 @@ class PostRepository extends ServiceEntityRepository
             ->groupBy('p.id')
             ->having('COUNT(t.name) >= :numberOfTags')
             ->setParameter('tagNames', $tagNames)
-            ->setParameter('numberOfTags',
-                count($tagNames))
+            ->setParameter(
+                'numberOfTags',
+                count($tagNames)
+            )
             ->getQuery()
             ->getResult()
             ;

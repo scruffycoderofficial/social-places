@@ -2,8 +2,10 @@
 
 namespace App\Entity\Blog;
 
+use DateTime;
 use Doctrine\ORM\Mapping as ORM;
-use App\Repository\CommentRepository;
+use Gedmo\Mapping\Annotation as Gedmo;
+use App\Repository\Blog\CommentRepository;
 
 /**
  * @ORM\Table(name="blog_post_comments")
@@ -24,7 +26,8 @@ class Comment
     private $body;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @Gedmo\Timestampable(on="create")
+     * @ORM\Column(type="datetime")
      */
     private $publicationDate;
 
@@ -55,12 +58,12 @@ class Comment
         return $this;
     }
 
-    public function getPublicationDate(): ?string
+    public function getPublicationDate(): DateTime
     {
         return $this->publicationDate;
     }
 
-    public function setPublicationDate(string $publicationDate): self
+    public function setPublicationDate(DateTime $publicationDate): self
     {
         $this->publicationDate = $publicationDate;
 
@@ -77,5 +80,17 @@ class Comment
         $this->post = $post;
 
         return $this;
+    }
+
+    public function setAuthor($author): Comment
+    {
+        $this->author = $author;
+
+        return $this;
+    }
+
+    public function getAuthor(): Author
+    {
+        return $this->author;
     }
 }

@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Tests\Feature\Repository\Admin;
+namespace App\Tests\Feature\Repository\Admin\Meeting;
 
 use App\Tests\TestCase;
-use App\Entity\Admin\Meeting;
-use App\DataFixtures\Admin\MeetingsFixture;
+use App\Entity\Admin\Meeting\Meeting;
+use App\DataFixtures\Admin\Meeting\MeetingsFixture;
 
 /**
  * Class MeetingRepositoryTest
