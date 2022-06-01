@@ -17,9 +17,4 @@ class HouseKeeperSpec extends ObjectBehavior
     {
         $this->shouldBeAnInstanceOf(EventSourcedAggregateRoot::class);
     }
-
-    function it_can_subscribe_the_house_it_keeps()
-    {
-        $
-    }
 }

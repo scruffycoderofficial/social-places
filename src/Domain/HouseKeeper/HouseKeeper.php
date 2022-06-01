@@ -6,10 +6,23 @@ use Broadway\EventSourcing\EventSourcedAggregateRoot;
 
 class HouseKeeper extends EventSourcedAggregateRoot
 {
-    private $houseId;
+    private $houseKeeperId;
 
     public function getAggregateRootId(): string
     {
-        return (string) $this->basketId;
+        return (string) $this->houseKeeperId;
+    }
+
+    public static function subscribeHouseKeeper(HouseKeeperId $keeperId): HouseKeeper
+    {
+        $houseKeeper = new HouseKeeper();
+        $houseKeeper->subscribeKeeper($keeperId);
+
+        return $houseKeeper;
+    }
+
+    private function subscribeKeeper(HouseKeeperId $keeperId)
+    {
+
     }
 }
