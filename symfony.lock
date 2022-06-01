@@ -5,6 +5,9 @@
     "behat/transliterator": {
         "version": "v1.5.0"
     },
+    "brick/math": {
+        "version": "0.9.3"
+    },
     "broadway/broadway": {
         "version": "2.4.0"
     },
@@ -243,6 +246,12 @@
     },
     "psr/log": {
         "version": "1.1.4"
+    },
+    "ramsey/collection": {
+        "version": "1.2.2"
+    },
+    "ramsey/uuid": {
+        "version": "4.3.1"
     },
     "scheb/2fa-bundle": {
         "version": "6.0",
