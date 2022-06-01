@@ -1,0 +1,93 @@
+version: "3.5"
+
+services:
+  db:
+    image: mysql:5.7
+    volumes:
+      - ./data/mysql:/var/lib/mysql
+    restart: always
+    ports:
+      - 3408:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: capable_platform_db
+      MYSQL_USER: user
+      MYSQL_PASSWORD: tester
+    networks:
+      - capable-platform-network
+
+  nginx:
+    platform: linux/x86_64
+    build: build/nginx
+    depends_on:
+      - app
+    environment:
+      PHP_FPM_IP: app
+      PHP_FPM_PORT: 9000
+    ports:
+      - 8000:80
+    volumes:
+      - .:/app
+
+  app:
+    platform: linux/x86_64
+    build:
+      context: build/php
+      target: base
+    depends_on:
+      - db
+    environment:
+      DATABASE_URL: "mysql://user:tester@db/capable_platform_db?serverVersion=5.7"
+    volumes:
+      - .:/app
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    restart: always
+    ports:
+      - 8002:80
+    environment:
+      PMA_HOST: db
+    networks:
+      - capable-platform-network
+    depends_on:
+      - db
+        
+  mailhog:
+    image: mailhog/mailhog
+    ports:
+      - 1003:1025
+      - 8003:8025
+    networks:
+      - capable-platform-network
+        
+  redis:
+    image: redis:alpine
+    networks:
+      - capable-platform-network
+        
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.4.0
+    environment:
+      - xpack.security.enabled=false
+      - discovery.type=single-node
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+      nofile:
+        soft: 65536
+        hard: 65536
+    cap_add:
+      - IPC_LOCK
+    volumes:
+      - ./data/elasticsearch:/usr/share/elasticsearch/data
+    ports:
+      - 9200:9200
+      - 9300:9300
+    networks:
+      - capable-platform-network
+        
+networks:
+  capable-platform-network:
+    driver: bridge

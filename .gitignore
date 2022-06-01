@@ -37,3 +37,7 @@ public/build/
 .php-cs-fixer.cache
 tools
 ###< miscelleneous ###
+
+###> docker ###
+/data
+###> docker ###

@@ -1,6 +1,6 @@
 doctrine:
     dbal:
-        driver: pdo_sqlite
+        driver: pdo_mysql
         # if the url option is specified, it will override the above config
         url: '%env(resolve:DATABASE_URL)%'
         charset: utf8mb4

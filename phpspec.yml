@@ -1,0 +1,15 @@
+formatter.name: pretty
+
+suites:
+
+  default_suite:
+    namespace: BeyondCapable\Module
+    psr4_prefix: BeyondCapable\Module
+    spec_path: '%paths.config%/specs/default'
+    src_path: '%paths.config%/src'
+
+  core_suite:
+    namespace: BeyondCapable\Component
+    psr4_prefix: BeyondCapable\Component
+    spec_path: '%paths.config%/specs/core'
+    src_path: '%paths.config%/core'
