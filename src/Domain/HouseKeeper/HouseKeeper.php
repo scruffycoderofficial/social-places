@@ -3,6 +3,7 @@
 namespace BeyondCapable\Domain\HouseKeeper;
 
 use Broadway\EventSourcing\EventSourcedAggregateRoot;
+use BeyondCapable\Domain\HouseKeeper\Event\HouseKeeperSubscribed;
 
 class HouseKeeper extends EventSourcedAggregateRoot
 {
@@ -23,6 +24,11 @@ class HouseKeeper extends EventSourcedAggregateRoot
 
     private function subscribeKeeper(HouseKeeperId $keeperId)
     {
+        $this->apply(new HouseKeeperSubscribed($keeperId));
+    }
 
+    protected function applyHouseKeeperWasSubscribed(HouseKeeperSubscribed $subscribedEvent)
+    {
+        $this->houseKeeperId = $subscribedEvent->getHouseKeeperId();
     }
 }

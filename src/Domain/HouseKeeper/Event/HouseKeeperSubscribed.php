@@ -2,8 +2,8 @@
 
 namespace BeyondCapable\Domain\HouseKeeper\Event;
 
-use BeyondCapable\Domain\HouseKeeper\HouseKeeperId;
 use Broadway\Serializer\SerializationException;
+use BeyondCapable\Domain\HouseKeeper\HouseKeeperId;
 
 final class HouseKeeperSubscribed extends HouseKeeperEvent
 {
