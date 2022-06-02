@@ -1,29 +1,25 @@
 #!/usr/bin/env php
 <?php
 
+use Doctrine\DBAL\Configuration;
+use Doctrine\DBAL\DriverManager;
+
 require_once __DIR__ . '/../vendor/autoload.php';
 
-$dbname = 'capable_platform_db';
-$dbuser = 'user';
-$dbpass = 'tester';
-$dbhost = 'db';
+$config = new Configuration();
 
-$config = new \Doctrine\DBAL\Configuration();
-
-$url = "mysql://{$dbuser}:{$dbpass}@{$dbhost}/{$dbname}?serverVersion=5.7";
-
-$connectionParams = array('url' => $url);
+$url = "mysql://user:tester@db/capable_platform_db?serverVersion=5.7";
 
 try {
 
-    $conn = \Doctrine\DBAL\DriverManager::getConnection ($connectionParams, $config);
+    $conn = DriverManager::getConnection (array('url' => $url), $config);
 
     if ($conn->connect()) {
-        echo "\n ==================== \n Connection Successful \n ====================";
+        echo "\n ====================\nConnection Successful\n====================";
     }
-}
 
-catch (Exception $e)
-{
-    echo "\n ==================== \n Connection unsuccessful \n ====================";
+} catch (Exception $e) {
+    echo "\n ==================== \n";
+    echo $e->getMessage();
+    echo "\n ====================";
 }

@@ -25,6 +25,9 @@
         <testsuite name="Project Test Suite">
             <directory>tests</directory>
         </testsuite>
+        <testsuite name="Domain Test Suite">
+            <directory>src/Domain/Tests</directory>
+        </testsuite>
     </testsuites>
 
     <coverage processUncoveredFiles="true">

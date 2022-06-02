@@ -5,7 +5,7 @@ doctrine:
         url: '%env(resolve:DATABASE_URL)%'
         charset: utf8mb4
         logging: '%kernel.debug%'
-        server_version: '8.0'
+        server_version: '5.7'
         mapping_types:
             enum: string
 
@@ -21,7 +21,7 @@ doctrine:
                 is_bundle: false
                 dir: '%kernel.project_dir%/src/Domain/Entity'
                 prefix: 'BeyondCapable\Domain\Entity'
-                alias: App
+                alias: BeyondCapable
 
 when@test:
     doctrine:
