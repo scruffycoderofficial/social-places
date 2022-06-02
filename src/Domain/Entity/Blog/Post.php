@@ -44,7 +44,7 @@ class Post
 
     /**
      * @ORM\ManyToMany(targetEntity="Tag", inversedBy="posts", fetch="EAGER", cascade={"persist"}, orphanRemoval=true)
-     * @ORM\JoinTable(inverseJoinColumns={@ORM\JoinColumn(name="tag_name", referencedColumnName="name")})
+     * @ORM\JoinTable(inverseJoinColumns={@ORM\JoinColumn(name="tag_name", referencedColumnName="id")})
      */
     private $tags;
 

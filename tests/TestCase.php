@@ -5,8 +5,8 @@ namespace BeyondCapable\Tests;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\Tools\SchemaTool;
 use Doctrine\ORM\Tools\ToolsException;
-use BeyondCapable\Shared\TestWork\FixtureAwareTestCase;
-use BeyondCapable\Shared\TestWork\Concern\InteractsWithDatabase;
+use BeyondCapable\Platform\TestWork\FixtureAwareTestCase;
+use BeyondCapable\Platform\TestWork\Concern\InteractsWithDatabase;
 
 abstract class TestCase extends FixtureAwareTestCase
 {
