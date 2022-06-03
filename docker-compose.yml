@@ -1,9 +1,10 @@
 version: "3.5"
 
 services:
+
   db:
     image: mysql:5.7
-    container_name: cp_mysql
+    container_name: ${COMPOSE_PROJECT_NAME}_db1
     volumes:
       - ./data/mysql:/var/lib/mysql
     restart: unless-stopped
@@ -18,38 +19,50 @@ services:
       - capable-platform-network
 
   nginx:
-    platform: linux/x86_64
-    container_name: cp_nginx
-    build: build/nginx
+    image: ${COMPOSE_PROJECT_NAME}_nginx:latest
+    build:
+      context: ./build/
+      args:
+        - "BUILD_ARGUMENT_ENV=dev"
+      dockerfile: ./nginx/Dockerfile
+    container_name: ${COMPOSE_PROJECT_NAME}_nginx
+    restart: always
+    ports:
+      - 90:80
+      - 553:443
+    volumes:
+      - .:/var/www/html:ro
     depends_on:
       - app
-    environment:
-      PHP_FPM_IP: app
-      PHP_FPM_PORT: 9000
-    ports:
-      - 8000:80
-    volumes:
-      - .:/app
+    networks:
+      - capable-platform-network
 
-  app:
-    platform: linux/x86_64
-    container_name: cp_app
+  app: &symfony-template
+    image: ${COMPOSE_PROJECT_NAME}_app:latest
     build:
-      context: build/php
-      target: base
+      context: .
+      args:
+        - "BUILD_ARGUMENT_ENV=dev"
+        - "BUILD_ARGUMENT_DEBUG_ENABLED=true"
+      dockerfile: ./Dockerfile
+    container_name: ${COMPOSE_PROJECT_NAME}_app
+    volumes:
+      - .:/var/www/html
     depends_on:
       - db
-    links:
-      - mailhog
-      - redis
       - rabbitmq
-      - elasticsearch
-    volumes:
-      - .:/app
+    networks:
+      - capable-platform-network
+
+  supervisord:
+    <<: *symfony-template
+    container_name: ${COMPOSE_PROJECT_NAME}_supervisord
+    expose: [ ]
+    command: [ "/usr/bin/supervisord" ]
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
-    container_name: cp_phpmyadmin
+    container_name: ${COMPOSE_PROJECT_NAME}_phpmyadmin
     restart: always
     ports:
       - 8002:80
@@ -62,7 +75,7 @@ services:
         
   mailhog:
     image: mailhog/mailhog
-    container_name: cp_mailhog
+    container_name: ${COMPOSE_PROJECT_NAME}_mailhog
     ports:
       - 1003:1025
       - 8003:8025
@@ -71,13 +84,13 @@ services:
         
   redis:
     image: redis:alpine
-    container_name: cp_redis
+    container_name: ${COMPOSE_PROJECT_NAME}_redis
     networks:
       - capable-platform-network
         
   elasticsearch:
     image: docker.elastic.co/elasticsearch/elasticsearch:7.4.0
-    container_name: cp_elastics
+    container_name: ${COMPOSE_PROJECT_NAME}_elastics
     environment:
       - cluster.name=cp-es-default-cluster
       - xpack.security.enabled=false
@@ -105,7 +118,7 @@ services:
 
   rabbitmq:
     image: rabbitmq:3.9-management
-    container_name: cp_rabbitmq
+    container_name: ${COMPOSE_PROJECT_NAME}_rabbitmq
     environment:
       - RABBITMQ_DEFAULT_USER=user
       - RABBITMQ_DEFAULT_PASS=tester
@@ -117,7 +130,7 @@ services:
 
   kibana:
     image: 'docker.elastic.co/kibana/kibana:7.4.0'
-    container_name: cp_kibana
+    container_name: ${COMPOSE_PROJECT_NAME}_kibana
     environment:
       SERVER_NAME: kibana.local
       ELASTICSEARCH_URL: http://elasticsearch:9200

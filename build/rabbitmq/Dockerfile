@@ -8,4 +8,4 @@ RUN curl -L https://github.com/rabbitmq/rabbitmq-delayed-message-exchange/releas
 
 RUN chown rabbitmq:rabbitmq $RABBITMQ_HOME/plugins/rabbitmq_delayed_message_exchange-3.9.0.ez
 
-RUN rabbitmq-plugins enable rabbitmq_delayed_message_exchange
+RUN rabbitmq-plugins enable --offline rabbitmq_delayed_message_exchange
