@@ -2,7 +2,7 @@
 
 namespace BeyondCapable\Application\Controller\Admin;
 
-use BeyondCapable\Entity\Blog\Post;
+use BeyondCapable\Platform\Domain\Entity\Blog\Post;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\DateTimeField;

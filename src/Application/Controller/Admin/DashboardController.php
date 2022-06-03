@@ -2,13 +2,13 @@
 
 namespace BeyondCapable\Application\Controller\Admin;
 
-use BeyondCapable\Entity\Blog\Tag;
-use BeyondCapable\Entity\Blog\Post;
-use BeyondCapable\Entity\Admin\User;
-use BeyondCapable\Entity\Admin\Contact;
-use BeyondCapable\Entity\Admin\Meeting\Meeting;
-use BeyondCapable\Entity\Admin\Meeting\Request;
-use BeyondCapable\Entity\Admin\Meeting\Schedule;
+use BeyondCapable\Platform\Domain\Entity\Blog\Tag;
+use BeyondCapable\Platform\Domain\Entity\Blog\Post;
+use BeyondCapable\Platform\Domain\Entity\Admin\User;
+use BeyondCapable\Platform\Domain\Entity\Admin\Contact;
+use BeyondCapable\Platform\Domain\Entity\Admin\Meeting\Meeting;
+use BeyondCapable\Platform\Domain\Entity\Admin\Meeting\Request;
+use BeyondCapable\Platform\Domain\Entity\Admin\Meeting\Schedule;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;

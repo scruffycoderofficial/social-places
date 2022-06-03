@@ -3,8 +3,8 @@
 namespace BeyondCapable\Tests\Feature\Domain\Entity\Repository\Admin;
 
 use BeyondCapable\Tests\TestCase;
-use BeyondCapable\Domain\Entity\Admin\User;
-use BeyondCapable\Domain\DataFixtures\Admin\UsersFixture;
+use BeyondCapable\Platform\Domain\Entity\Admin\User;
+use BeyondCapable\Platform\Domain\DataFixtures\Admin\UsersFixture;
 
 /**
  * Class UserRepositoryTest

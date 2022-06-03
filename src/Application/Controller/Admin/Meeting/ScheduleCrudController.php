@@ -2,7 +2,7 @@
 
 namespace BeyondCapable\Application\Controller\Admin\Meeting;
 
-use BeyondCapable\Entity\Admin\Meeting\Schedule;
+use BeyondCapable\Platform\Domain\Entity\Admin\Meeting\Schedule;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 
 /**

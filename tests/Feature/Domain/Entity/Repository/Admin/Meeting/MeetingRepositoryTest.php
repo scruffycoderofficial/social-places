@@ -3,8 +3,8 @@
 namespace BeyondCapable\Tests\Feature\Domain\Entity\Repository\Admin\Meeting;
 
 use BeyondCapable\Tests\TestCase;
-use BeyondCapable\Domain\Entity\Admin\Meeting\Meeting;
-use BeyondCapable\Domain\DataFixtures\Admin\Meeting\MeetingsFixture;
+use BeyondCapable\Platform\Domain\Entity\Admin\Meeting\Meeting;
+use BeyondCapable\Platform\Domain\DataFixtures\Admin\Meeting\MeetingsFixture;
 
 /**
  * Class MeetingRepositoryTest

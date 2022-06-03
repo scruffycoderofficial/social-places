@@ -2,7 +2,7 @@
 
 namespace BeyondCapable\Application\Controller\Admin;
 
-use BeyondCapable\Entity\Admin\User;
+use BeyondCapable\Platform\Domain\Entity\Admin\User;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;

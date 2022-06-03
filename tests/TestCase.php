@@ -56,17 +56,17 @@ abstract class TestCase extends FixtureAwareTestCase
     private function getClassEntities(): array
     {
         return [
-            \BeyondCapable\Domain\Entity\Admin\User::class,
-            \BeyondCapable\Domain\Entity\Admin\Contact::class,
+            \BeyondCapable\Platform\Domain\Entity\Admin\User::class,
+            \BeyondCapable\Platform\Domain\Entity\Admin\Contact::class,
 
-            \BeyondCapable\Domain\Entity\Admin\Meeting\Meeting::class,
+            \BeyondCapable\Platform\Domain\Entity\Admin\Meeting\Meeting::class,
 
-            \BeyondCapable\Domain\Entity\Blog\Author::class,
-            \BeyondCapable\Domain\Entity\Blog\Comment::class,
-            \BeyondCapable\Domain\Entity\Blog\CommentAuthor::class,
-            \BeyondCapable\Domain\Entity\Blog\Post::class,
-            \BeyondCapable\Domain\Entity\Blog\PostAuthor::class,
-            \BeyondCapable\Domain\Entity\Blog\Tag::class,
+            \BeyondCapable\Platform\Domain\Entity\Blog\Author::class,
+            \BeyondCapable\Platform\Domain\Entity\Blog\Comment::class,
+            \BeyondCapable\Platform\Domain\Entity\Blog\CommentAuthor::class,
+            \BeyondCapable\Platform\Domain\Entity\Blog\Post::class,
+            \BeyondCapable\Platform\Domain\Entity\Blog\PostAuthor::class,
+            \BeyondCapable\Platform\Domain\Entity\Blog\Tag::class,
         ];
     }
 }

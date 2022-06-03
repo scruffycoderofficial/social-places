@@ -2,7 +2,7 @@
 
 namespace BeyondCapable\Application\Controller\Admin;
 
-use BeyondCapable\Entity\Blog\Tag;
+use BeyondCapable\Platform\Domain\Entity\Blog\Tag;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\SlugField;

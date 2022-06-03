@@ -3,7 +3,7 @@
 namespace BeyondCapable\Tests\Feature\Domain\Entity\Repository\Blog;
 
 use BeyondCapable\Tests\TestCase;
-use BeyondCapable\Domain\DataFixtures\Blog\AuthorsFixture;
+use BeyondCapable\Platform\Domain\DataFixtures\Blog\AuthorsFixture;
 
 class AuthorRepositoryTest extends TestCase
 {
@@ -17,7 +17,7 @@ class AuthorRepositoryTest extends TestCase
 
     public function testFindPostAuthor()
     {
-        $authorPost = $this->entityManager->getRepository(\BeyondCapable\Domain\Entity\Blog\PostAuthor::class)->find(1);
+        $authorPost = $this->entityManager->getRepository(\BeyondCapable\Platform\Domain\Entity\Blog\PostAuthor::class)->find(1);
 
         $this->assertSame('George Abitbol', $authorPost->getName());
     }

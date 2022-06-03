@@ -2,7 +2,7 @@
 
 namespace BeyondCapable\Application\Controller\Admin;
 
-use BeyondCapable\Entity\Admin\Contact;
+use BeyondCapable\Platform\Domain\Entity\Admin\Contact;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 
 /**

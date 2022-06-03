@@ -2,9 +2,9 @@
 
 namespace BeyondCapable\Application\Controller\Api;
 
-use BeyondCapable\Domain\Entity\Admin\User;
+use BeyondCapable\Platform\Domain\Entity\Admin\User;
 use Psr\Log\LoggerInterface;
-use BeyondCapable\Domain\Entity\Repository\Admin\UserRepository;
+use BeyondCapable\Platform\Domain\Entity\Repository\Admin\UserRepository;
 use Doctrine\ORM\Exception\ORMException;
 use Doctrine\ORM\OptimisticLockException;
 use Symfony\Component\HttpFoundation\Request;

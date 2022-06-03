@@ -3,8 +3,8 @@
 namespace BeyondCapable\Tests\Feature\Domain\Entity\Repository\Admin;
 
 use BeyondCapable\Tests\TestCase;
-use BeyondCapable\Domain\Entity\Admin\Contact;
-use BeyondCapable\Domain\DataFixtures\Admin\ContactsFixture;
+use BeyondCapable\Platform\Domain\Entity\Admin\Contact;
+use BeyondCapable\Platform\Domain\DataFixtures\Admin\ContactsFixture;
 
 /**
  * Class ContactRepositoryTest
