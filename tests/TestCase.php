@@ -1,72 +1,61 @@
 <?php
 
-namespace BeyondCapable\Tests;
-
-use Doctrine\ORM\EntityManager;
-use Doctrine\ORM\Tools\SchemaTool;
-use Doctrine\ORM\Tools\ToolsException;
-use BeyondCapable\Platform\TestWork\FixtureAwareTestCase;
-use BeyondCapable\Platform\TestWork\Concern\InteractsWithDatabase;
-
-abstract class TestCase extends FixtureAwareTestCase
+namespace BeyondCapable\Tests
 {
-    use InteractsWithDatabase;
+    use Doctrine\ORM\EntityManager;
+    use Doctrine\ORM\Tools\SchemaTool;
+    use Doctrine\ORM\Tools\ToolsException;
+    use BeyondCapable\Platform\TestWork\FixtureAwareTestCase;
+    use BeyondCapable\Platform\TestWork\Concern\InteractsWithDatabase;
 
-    /**
-     * @var EntityManager
-     */
-    protected $entityManager;
-
-    /**
-     * @var SchemaTool
-     */
-    protected $schemaTool;
-
-    /**
-     * @var array
-     */
-    private $entityClasses = [];
-
-    /**
-     * @throws ToolsException
-     */
-    protected function setUp(): void
+    abstract class TestCase extends FixtureAwareTestCase
     {
-        parent::setUp();
+        use InteractsWithDatabase;
 
-        $this->entityManager = $this->getContainer()->get('doctrine')->getManager();
+        /**
+         * @var EntityManager
+         */
+        protected $entityManager;
 
-        $this->schemaTool = $this->getSchemaTool($this->entityManager);
+        /**
+         * @var SchemaTool
+         */
+        protected $schemaTool;
 
-        $this->entityClasses = $this->getClassMetadataCollection($this->entityManager, $this->getClassEntities());
+        /**
+         * @var array
+         */
+        private $entityClasses = [];
 
-        $this->createTables($this->schemaTool, $this->entityClasses);
-    }
+        /**
+         * @throws ToolsException
+         */
+        protected function setUp(): void
+        {
+            parent::setUp();
 
-    /**
-     * {@inheritDoc}
-     */
-    protected function tearDown(): void
-    {
-        parent::tearDown();
+            $this->entityManager = $this->getContainer()->get('doctrine')->getManager();
 
-        $this->dropTables($this->schemaTool, $this->entityClasses);
-    }
+            $this->schemaTool = $this->getSchemaTool($this->entityManager);
 
-    private function getClassEntities(): array
-    {
-        return [
-            \BeyondCapable\Platform\Domain\Entity\Admin\User::class,
-            \BeyondCapable\Platform\Domain\Entity\Admin\Contact::class,
+            $this->entityClasses = $this->getClassMetadataCollection($this->entityManager, $this->getClassEntities());
 
-            \BeyondCapable\Platform\Domain\Entity\Admin\Meeting\Meeting::class,
+            $this->createTables($this->schemaTool, $this->entityClasses);
+        }
 
-            \BeyondCapable\Platform\Domain\Entity\Blog\Author::class,
-            \BeyondCapable\Platform\Domain\Entity\Blog\Comment::class,
-            \BeyondCapable\Platform\Domain\Entity\Blog\CommentAuthor::class,
-            \BeyondCapable\Platform\Domain\Entity\Blog\Post::class,
-            \BeyondCapable\Platform\Domain\Entity\Blog\PostAuthor::class,
-            \BeyondCapable\Platform\Domain\Entity\Blog\Tag::class,
-        ];
+        /**
+         * {@inheritDoc}
+         */
+        protected function tearDown(): void
+        {
+            parent::tearDown();
+
+            $this->dropTables($this->schemaTool, $this->entityClasses);
+        }
+
+        private function getClassEntities(): array
+        {
+            return [];
+        }
     }
 }

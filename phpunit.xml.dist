@@ -28,6 +28,10 @@
         <testsuite name="Domain Test Suite">
             <directory>src/Platform/Domain/Tests</directory>
         </testsuite>
+        <testsuite name="Security Component Test Suite">
+            <directory>src/Component/Security/Domain/Tests/*</directory>
+            <directory>src/Component/Security/Tests/*</directory>
+        </testsuite>
     </testsuites>
 
     <coverage processUncoveredFiles="true">
