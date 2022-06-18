@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-use App\Security\Infrastructure\Doctrine\Type\HashedPasswordType;
-use App\Shared\Infrastructure\Doctrine\Type\DateTimeType;
-use App\Shared\Infrastructure\Doctrine\Type\EmailAddressType;
-use App\Shared\Infrastructure\Doctrine\Type\UuidIdentifierType;
-use App\Shared\Infrastructure\Doctrine\Type\UuidTokenType;
+use BeyondCapable\Core\Platform\Persistence\Doctrine\Type\DateTimeType;
+use BeyondCapable\Core\Platform\Persistence\Doctrine\Type\UuidTokenType;
+use BeyondCapable\Core\Platform\Persistence\Doctrine\Type\EmailAddressType;
+use BeyondCapable\Core\Platform\Persistence\Doctrine\Type\UuidIdentifierType;
+use BeyondCapable\Component\Security\Persistence\Doctrine\Type\HashedPasswordType;
 
 $metadata->mapField([
     'id' => true,
