@@ -83,7 +83,7 @@
     },
     "autoload": {
         "psr-4": {
-            "BeyondCapable\\": [ "src/", "core/" ]
+            "BeyondCapable\\": [ "src/" ]
         }
     },
     "autoload-dev": {
