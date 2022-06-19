@@ -5,14 +5,17 @@ declare(strict_types=1);
 namespace BeyondCapable\Component\Security\Tests\Http
 {
     use BeyondCapable\Component\Security\Domain\Entity\User;
-    use BeyondCapable\Platform\Domain\ValueObject\Date\DateTime;
-    use BeyondCapable\Platform\Domain\ValueObject\Date\Interval;
-    use BeyondCapable\Platform\Domain\ValueObject\Email\EmailAddress;
+
+    use BeyondCapable\Core\Platform\Domain\ValueObject\Date\DateTime;
+    use BeyondCapable\Core\Platform\Domain\ValueObject\Date\Interval;
+    use BeyondCapable\Core\Platform\Domain\ValueObject\Email\EmailAddress;
+
     use BeyondCapable\Component\Security\Domain\Contract\Gateway\UserGateway;
 
     use Symfony\Component\Uid\Uuid;
     use Symfony\Component\HttpFoundation\Request;
     use Symfony\Component\HttpFoundation\Response;
+
     use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
     /**
