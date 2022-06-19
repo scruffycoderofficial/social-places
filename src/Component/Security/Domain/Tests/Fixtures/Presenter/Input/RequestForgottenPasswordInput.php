@@ -2,15 +2,16 @@
 
 declare(strict_types=1);
 
-namespace BeyondCapable\Component\Security\Domain\Tests\Fixtures\UserInterface\Input
+namespace BeyondCapable\Component\Security\Domain\Tests\Fixtures\Presenter\Input
 {
     use BeyondCapable\Component\Security\Domain\UseCase\RequestForgottenPassword\RequestForgottenPasswordInputInterface;
-    use BeyondCapable\Platform\Domain\ValueObject\Email\EmailAddress;
+
+    use BeyondCapable\Core\Platform\Domain\ValueObject\Email\EmailAddress;
 
     /**
      * Class RequestForgottenPasswordInput
      *
-     * @package BeyondCapable\Component\Security\Domain\Tests\Fixtures\UserInterface\Input
+     * @package BeyondCapable\Component\Security\Domain\Tests\Fixtures\Presenter\Input
      */
     final class RequestForgottenPasswordInput implements RequestForgottenPasswordInputInterface
     {

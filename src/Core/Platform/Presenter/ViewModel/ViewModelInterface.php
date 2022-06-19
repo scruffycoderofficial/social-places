@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace BeyondCapable\Platform\Presenter\ViewModel
+namespace BeyondCapable\Core\Platform\Presenter\ViewModel
 {
     /**
      * Interface ViewModelInterface
      *
-     * @package BeyondCapable\Platform\Presenter\ViewModel
+     * @package BeyondCapable\Core\Platform\Presenter\ViewModel
      */
     interface ViewModelInterface{}
 }

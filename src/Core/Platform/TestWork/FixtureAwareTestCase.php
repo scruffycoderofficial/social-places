@@ -1,73 +1,78 @@
 <?php
 
-namespace BeyondCapable\Platform\TestWork;
+declare(strict_types=1);
 
-use Doctrine\Common\DataFixtures\FixtureInterface;
-use Doctrine\Common\DataFixtures\Purger\ORMPurger;
-use Doctrine\Common\DataFixtures\Executor\ORMExecutor;
-use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
-use Symfony\Bridge\Doctrine\DataFixtures\ContainerAwareLoader;
-
-/**
- * Class FixtureAwareTestCase
- *
- * @package App\Tests
- */
-abstract class FixtureAwareTestCase extends KernelTestCase
+namespace BeyondCapable\Core\Platform\TestWork
 {
-    /**
-     * @var ORMExecutor
-     */
-    private $fixtureExecutor;
+    use Doctrine\ORM\EntityManager;
+    use Doctrine\Common\DataFixtures\FixtureInterface;
+    use Doctrine\Common\DataFixtures\Purger\ORMPurger;
+    use Doctrine\Common\DataFixtures\Executor\ORMExecutor;
+
+    use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
+    use Symfony\Bridge\Doctrine\DataFixtures\ContainerAwareLoader;
 
     /**
-     * @var ContainerAwareLoader
+     * Class FixtureAwareTestCase
+     *
+     * @package BeyondCapable\Core\Platform\TestWork
      */
-    private $fixtureLoader;
-
-    protected function setUp(): void
+    abstract class FixtureAwareTestCase extends KernelTestCase
     {
-        static::bootKernel();
-    }
+        /**
+         * @var ORMExecutor
+         */
+        private $fixtureExecutor;
 
-    /**
-     * Adds a new fixture to be loaded.
-     */
-    protected function addFixture(FixtureInterface $fixture): void
-    {
-        $this->getFixtureLoader()->addFixture($fixture);
-    }
+        /**
+         * @var ContainerAwareLoader
+         */
+        private $fixtureLoader;
 
-    /**
-     * Executes all the fixtures that have been loaded so far.
-     */
-    protected function executeFixtures(): void
-    {
-        $this->getFixtureExecutor()->execute($this->getFixtureLoader()->getFixtures());
-    }
-
-    /**
-     * Get the class responsible for loading the data fixtures.
-     * And this will also load in the ORM Purger which purges the database before loading in the data fixtures
-     */
-    private function getFixtureExecutor(): ORMExecutor
-    {
-        if (!$this->fixtureExecutor) {
-            /** @var \Doctrine\ORM\EntityManager $entityManager */
-            $entityManager = static::$kernel->getContainer()->get('doctrine')->getManager();
-            $this->fixtureExecutor = new ORMExecutor($entityManager, new ORMPurger($entityManager));
+        protected function setUp(): void
+        {
+            static::bootKernel();
         }
-        return $this->fixtureExecutor;
-    }
 
-    /**
-     * Get the Doctrine data fixtures loader
-     */
-    private function getFixtureLoader(): ContainerAwareLoader
-    {
-        if (!$this->fixtureLoader) {
-            $this->fixtureLoader = new ContainerAwareLoader(static::$kernel->getContainer());
+        /**
+         * Adds a new fixture to be loaded.
+         */
+        protected function addFixture(FixtureInterface $fixture): void
+        {
+            $this->getFixtureLoader()->addFixture($fixture);
         }
-        return $this->fixtureLoader;
+
+        /**
+         * Executes all the fixtures that have been loaded so far.
+         */
+        protected function executeFixtures(): void
+        {
+            $this->getFixtureExecutor()->execute($this->getFixtureLoader()->getFixtures());
+        }
+
+        /**
+         * Get the class responsible for loading the data fixtures.
+         * And this will also load in the ORM Purger which purges the database before loading in the data fixtures
+         */
+        private function getFixtureExecutor(): ORMExecutor
+        {
+            if (!$this->fixtureExecutor) {
+                /** @var EntityManager $entityManager */
+                $entityManager = static::$kernel->getContainer()->get('doctrine')->getManager();
+                $this->fixtureExecutor = new ORMExecutor($entityManager, new ORMPurger($entityManager));
+            }
+            return $this->fixtureExecutor;
+        }
+
+        /**
+         * Get the Doctrine data fixtures loader
+         */
+        private function getFixtureLoader(): ContainerAwareLoader
+        {
+            if (!$this->fixtureLoader) {
+                $this->fixtureLoader = new ContainerAwareLoader(static::$kernel->getContainer());
+            }
+            return $this->fixtureLoader;
+        }
     }
 }

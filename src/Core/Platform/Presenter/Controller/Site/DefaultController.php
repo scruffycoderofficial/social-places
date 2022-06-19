@@ -1,23 +1,25 @@
 <?php
 
-namespace BeyondCapable\Application\Controller;
+declare(strict_types=1);
 
-use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-
-/**
- * Class DefaultController
- *
- * @package App\Controller
- */
-class DefaultController extends AbstractController
+namespace BeyondCapable\Core\Platform\Presenter\Controller\Site
 {
+    use Symfony\Component\HttpFoundation\Response;
+    use Symfony\Component\Routing\Annotation\Route;
+
+    use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+
     /**
-     * @Route("/")
+     * Class DefaultController
+     *
+     * @package BeyondCapable\Core\Platform\Presenter\Controller\Site
      */
-    public function index(): Response
+    class DefaultController extends AbstractController
     {
-        return $this->render('home/index.html.twig');
+        #[Route('/', name: 'default')]
+        public function index(): Response
+        {
+            return $this->render('site/default/index.html.twig');
+        }
     }
 }

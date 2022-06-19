@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace BeyondCapable\Component\Security\Presenter\Responder\ResetPassword
 {
-    use BeyondCapable\Platform\Presenter\Responder\TwigResponder;
+    use BeyondCapable\Core\Platform\Presenter\Responder\TwigResponder;
     use BeyondCapable\Component\Security\Presenter\ViewModel\ResetPasswordViewModel;
 
     use Symfony\Component\HttpFoundation\Response;

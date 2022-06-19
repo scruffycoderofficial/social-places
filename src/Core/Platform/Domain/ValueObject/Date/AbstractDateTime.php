@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace BeyondCapable\Platform\Domain\ValueObject\Date
+namespace BeyondCapable\Core\Platform\Domain\ValueObject\Date
 {
     /**
      * Class AbstractDateTime
      *
-     * @package BeyondCapable\Platform\Domain\ValueObject\Date
+     * @package BeyondCapable\Core\Platform\Domain\ValueObject\Date
      */
     abstract class AbstractDateTime implements DateTimeInterface
     {

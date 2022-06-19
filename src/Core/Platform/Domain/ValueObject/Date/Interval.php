@@ -2,16 +2,17 @@
 
 declare(strict_types=1);
 
-namespace BeyondCapable\Platform\Domain\ValueObject\Date
+namespace BeyondCapable\Core\Platform\Domain\ValueObject\Date
 {
+    use BeyondCapable\Core\Platform\Domain\Exception\InvalidArgumentException;
+
     use Exception;
     use DateInterval;
-    use BeyondCapable\Platform\Domain\Exception\InvalidArgumentException;
 
     /**
      * Class Interval
      *
-     * @package BeyondCapable\Domain\ValueObject\Date
+     * @package BeyondCapable\Core\Platform\Domain\ValueObject\Date
      */
     final class Interval
     {

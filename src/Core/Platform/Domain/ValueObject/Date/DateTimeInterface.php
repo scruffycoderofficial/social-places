@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace BeyondCapable\Platform\Domain\ValueObject\Date
+namespace BeyondCapable\Core\Platform\Domain\ValueObject\Date
 {
     use Stringable;
 
     /**
      * Interface DateTimeInterface
      *
-     * @package BeyondCapable\Platform\Domain\ValueObject\Date
+     * @package BeyondCapable\Core\Platform\Domain\ValueObject\Date
      */
     interface DateTimeInterface extends Stringable
     {

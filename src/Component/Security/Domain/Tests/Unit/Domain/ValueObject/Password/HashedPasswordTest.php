@@ -2,10 +2,11 @@
 
 declare(strict_types=1);
 
-namespace BeyondCapable\Component\Security\Domain\Tests\Unit\ValueObject\Password
+namespace BeyondCapable\Component\Security\Domain\Tests\Unit\Domain\ValueObject\Password
 {
     use BeyondCapable\Component\Security\Domain\ValueObject\Password\PlainPassword;
     use BeyondCapable\Component\Security\Domain\ValueObject\Password\HashedPassword;
+
     use BeyondCapable\Component\Security\Domain\Contract\PasswordHasher\PasswordHasherInterface;
 
     use PHPUnit\Framework\TestCase;
@@ -13,7 +14,7 @@ namespace BeyondCapable\Component\Security\Domain\Tests\Unit\ValueObject\Passwor
     /**
      * Class HashedPasswordTest
      *
-     * @package App\Security\Domain\Tests\Unit\ValueObject\Password
+     * @package BeyondCapable\Component\Security\Domain\Tests\Unit\Domain\ValueObject\Password
      */
     final class HashedPasswordTest extends TestCase
     {

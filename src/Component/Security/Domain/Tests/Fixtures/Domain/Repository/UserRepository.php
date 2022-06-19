@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace BeyondCapable\Component\Security\Domain\Tests\Fixtures\Infrastructure\Repository
+namespace BeyondCapable\Component\Security\Domain\Tests\Fixtures\Domain\Repository
 {
     use BeyondCapable\Component\Security\Domain\Entity\User;
     use BeyondCapable\Component\Security\Domain\Contract\Gateway\UserGateway;
 
-    use BeyondCapable\Core\Platform\Domain\ValueObject\Email\EmailAddress;
     use BeyondCapable\Core\Platform\Domain\ValueObject\Token\UuidToken;
+    use BeyondCapable\Core\Platform\Domain\ValueObject\Email\EmailAddress;
 
     /**
      * @template-implements UserGateway<User>

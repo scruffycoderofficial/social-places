@@ -2,9 +2,10 @@
 
 declare(strict_types=1);
 
-use App\Security\UserInterface\Controller\LoginController;
-use App\Security\UserInterface\Controller\RequestForgottenPasswordController;
-use App\Security\UserInterface\Controller\ResetPasswordController;
+use BeyondCapable\Component\Security\Presenter\Controller\LoginController;
+use BeyondCapable\Component\Security\Presenter\Controller\RequestForgottenPasswordController;
+use BeyondCapable\Component\Security\Presenter\Controller\ResetPasswordController;
+
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Loader\Configurator\RoutingConfigurator;
 

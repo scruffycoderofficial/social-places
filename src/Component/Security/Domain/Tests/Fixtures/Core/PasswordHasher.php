@@ -2,16 +2,16 @@
 
 declare(strict_types=1);
 
-namespace BeyondCapable\Component\Security\Domain\Tests\Fixtures\Infrastructure\Security
+namespace BeyondCapable\Component\Security\Domain\Tests\Fixtures\Core
 {
-    use BeyondCapable\Component\Security\Domain\Contract\PasswordHasher\PasswordHasherInterface;
-    use BeyondCapable\Component\Security\Domain\ValueObject\Password\HashedPassword;
     use BeyondCapable\Component\Security\Domain\ValueObject\Password\PlainPassword;
+    use BeyondCapable\Component\Security\Domain\ValueObject\Password\HashedPassword;
+    use BeyondCapable\Component\Security\Domain\Contract\PasswordHasher\PasswordHasherInterface;
 
     /**
      * Class PasswordHasher
      *
-     * @package BeyondCapable\Component\Security\Domain\Tests\Fixtures\Infrastructure\Security
+     * @package BeyondCapable\Component\Security\Domain\Tests\Fixtures\Core
      */
     final class PasswordHasher implements PasswordHasherInterface
     {

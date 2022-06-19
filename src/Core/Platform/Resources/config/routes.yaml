@@ -1,25 +1,3 @@
 #index:
 #    path: /
 #    controller: App\Controller\DefaultController::index
-contacts:
-  path: /api/contacts
-  controller: BeyondCapable\Application\Controller\Api\ContactsController::index
-  methods: GET
-
-contact:
-  path: /api/contact
-  controller: BeyondCapable\Application\Controller\Api\ContactsController::add
-  methods: POST
-
-register:
-  path: /api/register
-  controller: BeyondCapable\Application\Controller\Api\AuthController::register
-  methods: POST
-
-api_login_check:
-  path: /api/login_check
-  controller: BeyondCapable\Application\Controller\Api\AuthController::getTokenUser
-
-test:
-  path: /api/test
-  controller: BeyondCapable\Application\Controller\ApiController::test

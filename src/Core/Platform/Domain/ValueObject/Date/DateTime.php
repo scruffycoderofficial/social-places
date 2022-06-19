@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace BeyondCapable\Platform\Domain\ValueObject\Date
+namespace BeyondCapable\Core\Platform\Domain\ValueObject\Date
 {
     use DateTimeImmutable;
 
     /**
      * Class DateTime
      *
-     * @package BeyondCapable\Platform\Domain\ValueObject\Date
+     * @package BeyondCapable\Core\Platform\Domain\ValueObject\Date
      */
     final class DateTime extends AbstractDateTime implements DateTimeInterface
     {

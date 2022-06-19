@@ -2,17 +2,18 @@
 
 declare(strict_types=1);
 
-namespace BeyondCapable\Platform\Persistence\Doctrine\Type
+namespace BeyondCapable\Core\Platform\Persistence\Doctrine\Type
 {
+    use BeyondCapable\Core\Platform\Domain\ValueObject\Date\DateTime;
+
     use DateTimeInterface;
     use Doctrine\DBAL\Platforms\AbstractPlatform;
-    use BeyondCapable\Platform\Domain\ValueObject\Date\DateTime;
     use Doctrine\DBAL\Types\DateTimeType as DoctrineDateTimeType;
 
     /**
      * Class DateTimeType
      *
-     * @package BeyondCapable\Platform\Persistance\Doctrine\Type
+     * @package BeyondCapable\Core\Platform\Persistence\Doctrine\Type
      */
     final class DateTimeType extends DoctrineDateTimeType
     {

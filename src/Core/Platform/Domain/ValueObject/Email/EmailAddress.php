@@ -2,17 +2,19 @@
 
 declare(strict_types=1);
 
-namespace BeyondCapable\Platform\Domain\ValueObject\Email
+namespace BeyondCapable\Core\Platform\Domain\ValueObject\Email
 {
+    use BeyondCapable\Core\Platform\Domain\Exception\InvalidArgumentException;
+
     use Stringable;
+
     use Symfony\Component\Validator\Validation;
     use Symfony\Component\Validator\Constraints\Email;
-    use BeyondCapable\Platform\Domain\Exception\InvalidArgumentException;
 
     /**
      * Class EmailAddress
      *
-     * @package BeyondCapable\Domain\ValueObject\Email
+     * @package BeyondCapable\Core\Platform\Domain\ValueObject\Email
      */
     class EmailAddress implements Stringable
     {

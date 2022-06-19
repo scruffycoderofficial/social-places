@@ -2,15 +2,16 @@
 
 declare(strict_types=1);
 
-namespace BeyondCapable\Platform\Domain\ValueObject\Uuid
+namespace BeyondCapable\Core\Platform\Domain\ValueObject\Uuid
 {
     use Stringable;
+
     use Symfony\Component\Uid\Uuid;
 
     /**
      * Class AbstractUuid
      *
-     * @package BeyondCapable\Domain\ValueObject\Uuid
+     * @package BeyondCapable\Core\Platform\Domain\ValueObject\Uuid
      */
     abstract class AbstractUuid implements Stringable
     {

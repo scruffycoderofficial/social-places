@@ -2,17 +2,19 @@
 
 declare(strict_types=1);
 
-namespace BeyondCapable\Platform\Domain\Tests\Unit\ValueObject\Identifier
+namespace BeyondCapable\Core\Platform\Domain\Tests\Unit\ValueObject\Identifier
 {
-    use PHPUnit\Framework\TestCase;
+    use BeyondCapable\Core\Platform\Domain\Exception\InvalidArgumentException;
+    use BeyondCapable\Core\Platform\Domain\ValueObject\Identifier\UuidIdentifier;
+
     use Symfony\Component\Uid\Uuid;
-    use BeyondCapable\Platform\Domain\Exception\InvalidArgumentException;
-    use BeyondCapable\Platform\Domain\ValueObject\Identifier\UuidIdentifier;
+
+    use PHPUnit\Framework\TestCase;
 
     /**
      * Class UuidIdentifierTest
      *
-     * @package BeyondCapable\Domain\Tests\Unit\ValueObject\Identifier
+     * @package BeyondCapable\Core\Platform\Domain\Tests\Unit\ValueObject\Identifier
      */
     final class UuidIdentifierTest extends TestCase
     {

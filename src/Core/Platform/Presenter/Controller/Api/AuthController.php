@@ -1,92 +1,84 @@
 <?php
 
-namespace BeyondCapable\Application\Controller\Api;
+declare(strict_types=1);
 
-use BeyondCapable\Platform\Domain\Entity\Admin\User;
-use Psr\Log\LoggerInterface;
-use BeyondCapable\Platform\Domain\Entity\Repository\Admin\UserRepository;
-use Doctrine\ORM\Exception\ORMException;
-use Doctrine\ORM\OptimisticLockException;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\HttpFoundation\JsonResponse;
-use Symfony\Component\Security\Core\User\UserInterface;
-use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
-use Lexik\Bundle\JWTAuthenticationBundle\Services\JWTTokenManagerInterface;
-
-/**
- * Class AuthController
- *
- * @package App\Controller\Api
- */
-class AuthController extends ApiController
+namespace BeyondCapable\Core\Platform\Presenter\Controller\Api
 {
-    /**
-     * @var LoggerInterface
-     */
-    private $logger;
+    use BeyondCapable\Component\Security\Domain\Entity\User;
+
+    use Psr\Log\LoggerInterface;
+
+    use Lexik\Bundle\JWTAuthenticationBundle\Services\JWTTokenManagerInterface;
+
+    use Doctrine\ORM\Exception\ORMException;
+    use Doctrine\ORM\OptimisticLockException;
+
+    use Symfony\Component\HttpFoundation\Request;
+    use Symfony\Component\Routing\Annotation\Route;
+    use Symfony\Component\HttpFoundation\JsonResponse;
+    use Symfony\Component\Security\Core\User\UserInterface;
+    use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
     /**
-     * @var UserRepository
-     */
-    private $userRepository;
-
-    /**
-     * AuthController constructor.
+     * Class AuthController
      *
-     * @param UserRepository $userRepository
-     * @param LoggerInterface $logger
+     * @package App\Controller\Api
      */
-    public function __construct(UserRepository $userRepository, LoggerInterface $logger)
+    class AuthController extends ApiController
     {
-        $this->userRepository = $userRepository;
+        /**
+         * @var LoggerInterface
+         */
+        private $logger;
 
-        $this->logger = $logger;
-    }
-
-    /**
-     * @param Request $request
-     * @param UserPasswordEncoderInterface $encoder
-     * @return JsonResponse
-     */
-    public function register(Request $request, UserPasswordEncoderInterface $encoder): JsonResponse
-    {
-        $request = $this->transformJsonBody($request);
-
-        $firstName = $request->get('firstname');
-        $lastName = $request->get('lastname');
-        $username = $request->get('username');
-        $password = $request->get('password');
-        $email = $request->get('email');
-
-        if (empty($username) || empty($password) || empty($email)) {
-            return $this->respondValidationError("Invalid Username or Password or Email");
+        /**
+         * AuthController constructor.
+         *
+         * @param LoggerInterface $logger
+         */
+        public function __construct(LoggerInterface $logger)
+        {
+            $this->logger = $logger;
         }
 
-        try {
-            $user = new User($username);
+        #[Route('/api/register', name: 'register')]
+        public function register(Request $request, UserPasswordEncoderInterface $encoder): JsonResponse
+        {
+            $request = $this->transformJsonBody($request);
 
-            $user->setFirstName($firstName);
-            $user->setLastName($lastName);
-            $user->setPassword($encoder->encodePassword($user, $password));
-            $user->setEmail($email);
-            $user->setUsername($username);
-            $this->userRepository->add($user, true);
-        } catch (OptimisticLockException | ORMException $e) {
-            $this->logger->error($e->getMessage());
+            $firstName = $request->get('firstname');
+            $lastName = $request->get('lastname');
+            $username = $request->get('username');
+            $password = $request->get('password');
+            $email = $request->get('email');
+
+            if (empty($username) || empty($password) || empty($email)) {
+                return $this->respondValidationError("Invalid Username or Password or Email");
+            }
+
+            try {
+
+                $user = User::create($username);
+
+                $user->setFirstName($firstName);
+                $user->setLastName($lastName);
+                $user->setPassword($encoder->encodePassword($user, $password));
+                $user->setEmail($email);
+                $user->setUsername($username);
+
+                $this->userRepository->add($user, true);
+
+            } catch (OptimisticLockException | ORMException $e) {
+                $this->logger->error($e->getMessage());
+            }
+
+            return $this->respondWithSuccess(sprintf('User %s successfully created', $user->getUsername()));
         }
 
-        return $this->respondWithSuccess(sprintf('User %s successfully created', $user->getUsername()));
-    }
-
-    /**
-     * @param UserInterface $user
-     * @param JWTTokenManagerInterface $JWTManager
-     * @return JsonResponse
-     */
-    public function getTokenUser(UserInterface $user, JWTTokenManagerInterface $JWTManager): JsonResponse
-    {
-        return new JsonResponse(['token' => $JWTManager->create($user)]);
+        #[Route('/api/login_check', name: 'api_login_check')]
+        public function getTokenUser(UserInterface $user, JWTTokenManagerInterface $JWTManager): JsonResponse
+        {
+            return new JsonResponse(['token' => $JWTManager->create($user)]);
+        }
     }
 }

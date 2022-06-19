@@ -1,66 +1,69 @@
 <?php
 
-namespace BeyondCapable\Platform\TestWork\Concern;
+declare(strict_types=1);
 
-use Doctrine\ORM\EntityManager;
-use Doctrine\ORM\Tools\SchemaTool;
-use Doctrine\ORM\Tools\ToolsException;
-
-/**
- * Trait InteractsWithDatabase
- *
- * @package App\Tests\Concern
- */
-trait InteractsWithDatabase
+namespace BeyondCapable\Core\Platform\TestWork\Concern
 {
-    /**
-     * @var SchemaTool
-     */
-    protected $schemaTool;
+    use Doctrine\ORM\EntityManager;
+    use Doctrine\ORM\Tools\SchemaTool;
+    use Doctrine\ORM\Tools\ToolsException;
 
     /**
-     * @param EntityManager $entityManager
-     * @return SchemaTool
+     * Trait InteractsWithDatabase
+     *
+     * @package BeyondCapable\Core\Platform\TestWork\Concern
      */
-    protected function getSchemaTool(EntityManager $entityManager): SchemaTool
+    trait InteractsWithDatabase
     {
-        return new SchemaTool($entityManager);
-    }
+        /**
+         * @var SchemaTool
+         */
+        protected $schemaTool;
 
-    /**
-     * @param EntityManager $entityManager
-     * @param array $entityClasses
-     * @return array
-     */
-    protected function getClassMetadataCollection(EntityManager $entityManager, array $entityClasses): array
-    {
-        $classes = [];
-
-        foreach ($entityClasses as $entityClass) {
-            if (class_exists($entityClass)) {
-                array_push($classes, $entityManager->getClassMetadata($entityClass));
-            }
+        /**
+         * @param EntityManager $entityManager
+         * @return SchemaTool
+         */
+        protected function getSchemaTool(EntityManager $entityManager): SchemaTool
+        {
+            return new SchemaTool($entityManager);
         }
 
-        return $classes;
-    }
+        /**
+         * @param EntityManager $entityManager
+         * @param array $entityClasses
+         * @return array
+         */
+        protected function getClassMetadataCollection(EntityManager $entityManager, array $entityClasses): array
+        {
+            $classes = [];
 
-    /**
-     * @param SchemaTool $schemaTool
-     * @param array $classes
-     * @throws ToolsException
-     */
-    protected function createTables(SchemaTool $schemaTool, array $classes)
-    {
-        $schemaTool->createSchema($classes);
-    }
+            foreach ($entityClasses as $entityClass) {
+                if (class_exists($entityClass)) {
+                    array_push($classes, $entityManager->getClassMetadata($entityClass));
+                }
+            }
 
-    /**
-     * @param SchemaTool $schemaTool
-     * @param array $classes
-     */
-    protected function dropTables(SchemaTool $schemaTool, array $classes)
-    {
-        $schemaTool->dropSchema($classes);
+            return $classes;
+        }
+
+        /**
+         * @param SchemaTool $schemaTool
+         * @param array $classes
+         * @throws ToolsException
+         */
+        protected function createTables(SchemaTool $schemaTool, array $classes)
+        {
+            $schemaTool->createSchema($classes);
+        }
+
+        /**
+         * @param SchemaTool $schemaTool
+         * @param array $classes
+         */
+        protected function dropTables(SchemaTool $schemaTool, array $classes)
+        {
+            $schemaTool->dropSchema($classes);
+        }
     }
 }

@@ -2,16 +2,18 @@
 
 declare(strict_types=1);
 
-namespace BeyondCapable\Component\Security\Domain\Tests\Fixtures\UserInterface\Input
+namespace BeyondCapable\Component\Security\Domain\Tests\Fixtures\Presenter\Input
 {
     use BeyondCapable\Component\Security\Domain\Entity\User;
+
     use BeyondCapable\Component\Security\Domain\UseCase\ResetPassword\ResetPasswordInputInterface;
+
     use BeyondCapable\Component\Security\Domain\ValueObject\Password\PlainPassword;
 
     /**
      * Class ResetPasswordInput
      *
-     * @package BeyondCapable\Component\Security\Domain\Tests\Fixtures\UserInterface\Input
+     * @package BeyondCapable\Component\Security\Domain\Tests\Fixtures\Presenter\Input
      */
     final class ResetPasswordInput implements ResetPasswordInputInterface
     {

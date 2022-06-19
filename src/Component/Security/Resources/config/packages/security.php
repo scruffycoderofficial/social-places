@@ -2,10 +2,11 @@
 
 declare(strict_types=1);
 
-use App\Security\Infrastructure\Symfony\Security\Authenticator\Authenticator;
-use App\Security\Infrastructure\Symfony\Security\EntryPoint\AuthenticationEntryPoint;
-use App\Security\Infrastructure\Symfony\Security\User\Checker;
-use App\Security\Infrastructure\Symfony\Security\User\Provider;
+use BeyondCapable\Component\Security\Core\User\Checker;
+use BeyondCapable\Component\Security\Core\User\Provider;
+use BeyondCapable\Component\Security\Core\Authenticator\Authenticator;
+use BeyondCapable\Component\Security\Core\EntryPoint\AuthenticationEntryPoint;
+
 use Symfony\Config\SecurityConfig;
 
 return static function (SecurityConfig $security): void {

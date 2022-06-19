@@ -1,4 +1,2 @@
 easy_admin:
-  entities:
-    BeyondCapable\Entity\User:
-      disabled_actions: ['new']
+  entities: ~

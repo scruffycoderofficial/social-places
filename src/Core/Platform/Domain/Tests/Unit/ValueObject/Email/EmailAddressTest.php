@@ -2,16 +2,17 @@
 
 declare(strict_types=1);
 
-namespace BeyondCapable\Platform\Domain\Tests\Unit\ValueObject\Email
+namespace BeyondCapable\Core\Platform\Domain\Tests\Unit\ValueObject\Email
 {
+    use BeyondCapable\Core\Platform\Domain\ValueObject\Email\EmailAddress;
+    use BeyondCapable\Core\Platform\Domain\Exception\InvalidArgumentException;
+
     use PHPUnit\Framework\TestCase;
-    use BeyondCapable\Platform\Domain\ValueObject\Email\EmailAddress;
-    use BeyondCapable\Platform\Domain\Exception\InvalidArgumentException;
 
     /**
      * Class EmailAddressTest
      *
-     * @package BeyondCapable\Domain\Tests\Unit\ValueObject\Email
+     * @package BeyondCapable\Core\Platform\Domain\Tests\Unit\ValueObject\Email
      */
     final class EmailAddressTest extends TestCase
     {
@@ -21,6 +22,7 @@ namespace BeyondCapable\Platform\Domain\Tests\Unit\ValueObject\Email
         public function testIfFactoryCreateEmailAddress(): void
         {
             $emailAddress = EmailAddress::createFromString('user+1@email.com');
+
             $this->assertEquals('user+1@email.com', (string) $emailAddress);
             $this->assertTrue($emailAddress->equalTo(EmailAddress::createFromString('user+1@email.com')));
         }
@@ -31,6 +33,7 @@ namespace BeyondCapable\Platform\Domain\Tests\Unit\ValueObject\Email
         public function testIfEmailAddressIsInvalid(): void
         {
             $this->expectException(InvalidArgumentException::class);
+
             EmailAddress::createFromString('fail');
         }
     }

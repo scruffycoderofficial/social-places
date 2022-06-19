@@ -2,22 +2,24 @@
 
 declare(strict_types=1);
 
-namespace BeyondCapable\Platform\Domain\Tests\Unit\ValueObject\Date
+namespace BeyondCapable\Core\Platform\Domain\Tests\Unit\ValueObject\Date
 {
+    use BeyondCapable\Core\Platform\Domain\ValueObject\Date\Date;
+    use BeyondCapable\Core\Platform\Domain\ValueObject\Date\Time;
+    use BeyondCapable\Core\Platform\Domain\ValueObject\Date\DateTime;
+    use BeyondCapable\Core\Platform\Domain\ValueObject\Date\Interval;
+    use BeyondCapable\Core\Platform\Domain\Exception\InvalidArgumentException;
+
     use Generator;
     use DateTimeImmutable;
     use DateTimeInterface;
+
     use PHPUnit\Framework\TestCase;
-    use BeyondCapable\Platform\Domain\ValueObject\Date\Date;
-    use BeyondCapable\Platform\Domain\ValueObject\Date\Time;
-    use BeyondCapable\Platform\Domain\ValueObject\Date\DateTime;
-    use BeyondCapable\Platform\Domain\ValueObject\Date\Interval;
-    use BeyondCapable\Platform\Domain\Exception\InvalidArgumentException;
 
     /**
      * Class DateTimeTest
      *
-     * @package BeyondCapable\Domain\Tests\Unit\ValueObject\Date
+     * @package BeyondCapable\Core\Platform\Domain\Tests\Unit\ValueObject\Date
      */
     final class DateTimeTest extends TestCase
     {

@@ -2,23 +2,24 @@
 
 declare(strict_types=1);
 
-namespace BeyondCapable\Component\Security\Tests\Http
+namespace BeyondCapable\Component\Security\Tests\Functional\Http
 {
     use Generator;
 
     use Symfony\Component\HttpFoundation\Request;
     use Symfony\Component\HttpFoundation\Response;
-    use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
     use Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface;
+
+    use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
     /**
      * Class LoginTest
-     *
-     * @package BeyondCapable\Component\Security\Persistence\Tests\Http
+     * s
+     * @package BeyondCapable\Component\Security\Tests\Functional\Http
      */
     final class LoginTest extends WebTestCase
     {
-        public function testIfLoginAfterHasBeenRedirectIsSuccessful(): void
+        public function testIfLoginAfterHasBeenRedirectedSuccessfully(): void
         {
             $client = static::createClient();
 
@@ -99,7 +100,7 @@ namespace BeyondCapable\Component\Security\Tests\Http
          *
          * @dataProvider provideBadData
          */
-        public function testIfLoginIsFailed(array $formData): void
+        public function testIfLoginIsFailsOnInvalidCredentials(array $formData): void
         {
             $client = static::createClient();
 

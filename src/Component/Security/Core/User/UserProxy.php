@@ -9,8 +9,8 @@ namespace BeyondCapable\Component\Security\Core\User
     use BeyondCapable\Component\Security\Domain\Entity\User;
     use BeyondCapable\Component\Security\Domain\ValueObject\Password\HashedPassword;
 
-    use BeyondCapable\Platform\Domain\ValueObject\EmailAddress;
-    use BeyondCapable\Platform\Domain\ValueObject\Identifier\UuidIdentifier;
+    use BeyondCapable\Core\Platform\Domain\ValueObject\EmailAddress;
+    use BeyondCapable\Core\Platform\Domain\ValueObject\Identifier\UuidIdentifier;
 
     use Symfony\Component\Security\Core\User\UserInterface;
     use Symfony\Component\Security\Core\User\EquatableInterface;

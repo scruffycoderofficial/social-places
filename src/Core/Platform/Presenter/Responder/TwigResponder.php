@@ -2,16 +2,21 @@
 
 declare(strict_types=1);
 
-namespace BeyondCapable\Platform\Presenter\Responder
+namespace BeyondCapable\Core\Platform\Presenter\Responder
 {
+    use BeyondCapable\Core\Platform\Presenter\ViewModel\ViewModelInterface;
+
     use Twig\Environment;
+    use Twig\Error\LoaderError;
+    use Twig\Error\SyntaxError;
+    use Twig\Error\RuntimeError;
+
     use Symfony\Component\HttpFoundation\Response;
-    use BeyondCapable\Platform\Presenter\ViewModel\ViewModelInterface;
 
     /**
      * Class TwigResponder
      *
-     * @package BeyondCapable\Platform\Presenter\Responder
+     * @package BeyondCapable\Core\Platform\Presenter\Responder
      */
     final class TwigResponder
     {
@@ -28,9 +33,9 @@ namespace BeyondCapable\Platform\Presenter\Responder
          * @param string $template
          * @param ViewModelInterface $viewModel
          * @return Response
-         * @throws \Twig\Error\LoaderError
-         * @throws \Twig\Error\RuntimeError
-         * @throws \Twig\Error\SyntaxError
+         * @throws LoaderError
+         * @throws RuntimeError
+         * @throws SyntaxError
          */
         public function send(string $template, ViewModelInterface $viewModel): Response
         {

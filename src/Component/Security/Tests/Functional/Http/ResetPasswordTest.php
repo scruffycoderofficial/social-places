@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace BeyondCapable\Component\Security\Tests\Http
+namespace BeyondCapable\Component\Security\Tests\Functional\Http
 {
     use BeyondCapable\Component\Security\Domain\Entity\User;
 

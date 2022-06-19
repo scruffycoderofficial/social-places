@@ -2,20 +2,23 @@
 
 declare(strict_types=1);
 
-namespace BeyondCapable\Component\Security\Tests\Http
+namespace BeyondCapable\Component\Security\Tests\Functional\Http
 {
-    use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
     use BeyondCapable\Component\Security\Domain\Entity\User;
-    use BeyondCapable\Platform\Domain\ValueObject\Email\EmailAddress;
+
+    use BeyondCapable\Core\Platform\Domain\ValueObject\Email\EmailAddress;
+
     use BeyondCapable\Component\Security\Domain\Contract\Gateway\UserGateway;
 
     use Symfony\Component\HttpFoundation\Request;
     use Symfony\Component\HttpFoundation\Response;
 
+    use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
+
     /**
      * Class RequestForgottenPasswordTest
      *
-     * @package BeyondCapable\Component\Security\Tests\Http
+     * @package BeyondCapable\Component\Security\Tests\Functional\Http
      */
     final class RequestForgottenPasswordTest extends WebTestCase
     {

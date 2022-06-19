@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace BeyondCapable\Component\Security\Domain\Tests\Fixtures\UserInterface\Presenter
+namespace BeyondCapable\Component\Security\Domain\Tests\Fixtures\Presenter
 {
     use BeyondCapable\Component\Security\Domain\UseCase\RequestForgottenPassword\RequestForgottenPasswordOutput;
     use BeyondCapable\Component\Security\Domain\UseCase\RequestForgottenPassword\RequestForgottenPasswordPresenterInterface;
@@ -10,7 +10,7 @@ namespace BeyondCapable\Component\Security\Domain\Tests\Fixtures\UserInterface\P
     /**
      * Class RequestForgottenPasswordPresenter
      *
-     * @package BeyondCapable\Component\Security\Domain\Tests\Fixtures\UserInterface\Presenter
+     * @package BeyondCapable\Component\Security\Domain\Tests\Fixtures\Presenter
      */
     final class RequestForgottenPasswordPresenter implements RequestForgottenPasswordPresenterInterface
     {

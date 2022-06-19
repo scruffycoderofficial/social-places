@@ -2,16 +2,17 @@
 
 declare(strict_types=1);
 
-namespace BeyondCapable\Platform\Domain\ValueObject\Identifier
+namespace BeyondCapable\Core\Platform\Domain\ValueObject\Identifier
 {
+    use BeyondCapable\Core\Platform\Domain\ValueObject\Uuid\AbstractUuid;
+    use BeyondCapable\Core\Platform\Domain\Exception\InvalidArgumentException;
+
     use Symfony\Component\Uid\Uuid;
-    use BeyondCapable\Platform\Domain\ValueObject\Uuid\AbstractUuid;
-    use BeyondCapable\Platform\Domain\Exception\InvalidArgumentException;
 
     /**
      * Class UuidIdentifier
      *
-     * @package BeyondCapable\Domain\ValueObject\Identifier
+     * @package BeyondCapable\Core\Platform\Domain\ValueObject\Identifier
      */
     class UuidIdentifier extends AbstractUuid
     {

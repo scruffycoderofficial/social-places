@@ -2,75 +2,89 @@
 
 declare(strict_types=1);
 
-namespace BeyondCapable\Component\Security\Domain\Tests\Unit\UseCase;
-
-use BeyondCapable\Component\Security\Domain\Entity\User;
-use BeyondCapable\Component\Security\Domain\Tests\Fixtures\Infrastructure\Repository\UserRepository;
-use BeyondCapable\Component\Security\Domain\Tests\Fixtures\Infrastructure\Security\PasswordHasher;
-use BeyondCapable\Component\Security\Domain\Tests\Fixtures\UserInterface\Input\ResetPasswordInput;
-use BeyondCapable\Component\Security\Domain\UseCase\ResetPassword\ResetPassword;
-use BeyondCapable\Component\Security\Domain\UseCase\ResetPassword\ResetPasswordInterface;
-use BeyondCapable\Component\Security\Domain\ValueObject\Password\HashedPassword;
-use BeyondCapable\Component\Security\Domain\ValueObject\Password\PlainPassword;
-use BeyondCapable\Platform\Domain\ValueObject\Email\EmailAddress;
-use BeyondCapable\Platform\Domain\ValueObject\Identifier\UuidIdentifier;
-use Exception;
-use PHPUnit\Framework\TestCase;
-
-final class ResetPasswordTest extends TestCase
+namespace BeyondCapable\Component\Security\Domain\Tests\Unit\Domain\UseCase
 {
-    private UserRepository $userRepository;
+    use BeyondCapable\Component\Security\Domain\Entity\User;
 
-    private ResetPasswordInterface $useCase;
+    use BeyondCapable\Component\Security\Domain\Tests\Fixtures\Core\PasswordHasher;
 
-    private PasswordHasher $passwordHasher;
+    use BeyondCapable\Component\Security\Domain\Tests\Fixtures\Domain\Repository\UserRepository;
 
-    protected function setUp(): void
+    use BeyondCapable\Component\Security\Domain\Tests\Fixtures\Presenter\Input\ResetPasswordInput;
+
+    use BeyondCapable\Component\Security\Domain\UseCase\ResetPassword\ResetPassword;
+    use BeyondCapable\Component\Security\Domain\UseCase\ResetPassword\ResetPasswordInterface;
+
+    use BeyondCapable\Component\Security\Domain\ValueObject\Password\HashedPassword;
+    use BeyondCapable\Component\Security\Domain\ValueObject\Password\PlainPassword;
+
+    use BeyondCapable\Core\Platform\Domain\ValueObject\Email\EmailAddress;
+    use BeyondCapable\Core\Platform\Domain\ValueObject\Identifier\UuidIdentifier;
+
+    use Exception;
+
+    use PHPUnit\Framework\TestCase;
+
+    /**
+     * Class ResetPasswordTest
+     *
+     * @package BeyondCapable\Component\Security\Domain\Tests\Unit\Domain\UseCase
+     */
+    final class ResetPasswordTest extends TestCase
     {
-        $this->userRepository = new UserRepository([]);
-        $this->passwordHasher = new PasswordHasher();
-        $this->useCase = new ResetPassword($this->userRepository, $this->passwordHasher);
-    }
+        private UserRepository $userRepository;
 
-    public function testIfResetPasswordIsSuccessful(): void
-    {
-        $user = User::create(
-            identifier: UuidIdentifier::create(),
-            email: EmailAddress::createFromString('user+1@email.com')
-        );
+        private ResetPasswordInterface $useCase;
 
-        $user->requestForAForgottenPassword();
-        $this->userRepository->users[] = $user;
-        $input = new ResetPasswordInput('new_password', $user);
-        $this->useCase->__invoke($input);
+        private PasswordHasher $passwordHasher;
 
-        $this->assertNull($user->forgottenPasswordRequestedAt);
-        $this->assertNull($user->forgottenPasswordToken);
+        protected function setUp(): void
+        {
+            $this->userRepository = new UserRepository([]);
+            $this->passwordHasher = new PasswordHasher();
+            $this->useCase = new ResetPassword($this->userRepository, $this->passwordHasher);
+        }
 
-        /** @var HashedPassword $hashedPassword */
-        $hashedPassword = $user->hashedPassword;
+        public function testIfResetPasswordIsSuccessful(): void
+        {
+            $user = User::create(
+                identifier: UuidIdentifier::create(),
+                email: EmailAddress::createFromString('user+1@email.com')
+            );
 
-        $this->assertNotNull($hashedPassword);
+            $user->requestForAForgottenPassword();
+            $this->userRepository->users[] = $user;
+            $input = new ResetPasswordInput('new_password', $user);
+            $this->useCase->__invoke($input);
 
-        $this->assertTrue(
-            $hashedPassword->verify(
-                $this->passwordHasher,
-                PlainPassword::createFromString('new_password')
-            )
-        );
-        $this->assertFalse($user->canResetPassword());
-    }
+            $this->assertNull($user->forgottenPasswordRequestedAt);
+            $this->assertNull($user->forgottenPasswordToken);
 
-    public function testIfResetPasswordIsFailedBecauseUseHasNotRequestAForgottenPassword(): void
-    {
-        $user = User::create(
-            identifier: UuidIdentifier::create(),
-            email: EmailAddress::createFromString('user+2@email.com')
-        );
-        $this->userRepository->users[] = $user;
-        $input = new ResetPasswordInput('new_password', $user);
+            /** @var HashedPassword $hashedPassword */
+            $hashedPassword = $user->hashedPassword;
 
-        $this->expectException(Exception::class);
-        $this->useCase->__invoke($input);
+            $this->assertNotNull($hashedPassword);
+
+            $this->assertTrue(
+                $hashedPassword->verify(
+                    $this->passwordHasher,
+                    PlainPassword::createFromString('new_password')
+                )
+            );
+            $this->assertFalse($user->canResetPassword());
+        }
+
+        public function testIfResetPasswordIsFailedBecauseUseHasNotRequestAForgottenPassword(): void
+        {
+            $user = User::create(
+                identifier: UuidIdentifier::create(),
+                email: EmailAddress::createFromString('user+2@email.com')
+            );
+            $this->userRepository->users[] = $user;
+            $input = new ResetPasswordInput('new_password', $user);
+
+            $this->expectException(Exception::class);
+            $this->useCase->__invoke($input);
+        }
     }
 }

@@ -4,8 +4,10 @@ declare(strict_types=1);
 
 namespace BeyondCapable\Component\Security\Presenter\Input
 {
-    use BeyondCapable\Platform\Domain\Exception\InvalidArgumentException;
-    use BeyondCapable\Platform\Domain\ValueObject\Email\EmailAddress;
+    use BeyondCapable\Core\Platform\Domain\ValueObject\Email\EmailAddress;
+
+    use BeyondCapable\Core\Platform\Domain\Exception\InvalidArgumentException;
+
     use BeyondCapable\Component\Security\Domain\UseCase\RequestForgottenPassword\RequestForgottenPasswordInputInterface;
 
     use Symfony\Component\Validator\Constraints\Email;
