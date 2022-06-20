@@ -7,8 +7,8 @@ namespace BeyondCapable\Component\Security\Presenter\Form
     use BeyondCapable\Component\Security\Presenter\Input\RequestForgottenPasswordInput;
 
     use Symfony\Component\Form\AbstractType;
-    use Symfony\Component\Form\Extension\Core\Type\EmailType;
     use Symfony\Component\Form\FormBuilderInterface;
+    use Symfony\Component\Form\Extension\Core\Type\EmailType;
     use Symfony\Component\OptionsResolver\OptionsResolver;
 
     /**

@@ -5,8 +5,9 @@ declare(strict_types=1);
 namespace BeyondCapable\Component\Security\Domain\Contract\Gateway
 {
     use BeyondCapable\Component\Security\Domain\Entity\User;
-    use BeyondCapable\Platform\Domain\ValueObject\Token\UuidToken;
-    use BeyondCapable\Platform\Domain\ValueObject\Email\EmailAddress;
+
+    use BeyondCapable\Core\Platform\Domain\ValueObject\Token\UuidToken;
+    use BeyondCapable\Core\Platform\Domain\ValueObject\Email\EmailAddress;
 
     /**
      * @template T as User

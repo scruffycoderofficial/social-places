@@ -7,8 +7,8 @@ namespace BeyondCapable\Component\Security\Core\User
     use BeyondCapable\Component\Security\Domain\Entity\User;
     use BeyondCapable\Component\Security\Domain\Contract\Gateway\UserGateway;
 
-    use BeyondCapable\Platform\Domain\ValueObject\EmailAddress;
-    use BeyondCapable\Platform\Domain\Exception\InvalidArgumentException;
+    use BeyondCapable\Core\Platform\Domain\ValueObject\EmailAddress;
+    use BeyondCapable\Core\Platform\Domain\Exception\InvalidArgumentException;
 
     use Symfony\Component\Security\Core\User\UserInterface;
     use Symfony\Component\Security\Core\User\UserProviderInterface;

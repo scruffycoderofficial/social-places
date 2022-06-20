@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace BeyondCapable\Component\Security\Domain\UseCase\RequestForgottenPassword
 {
-    use BeyondCapable\Platform\Domain\ValueObject\Email\EmailAddress;
+    use BeyondCapable\Core\Platform\Domain\ValueObject\Email\EmailAddress;
 
     /**
      * Interface RequestForgottenPasswordInputInterface

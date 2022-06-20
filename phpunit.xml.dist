@@ -25,12 +25,12 @@
         <testsuite name="Project Test Suite">
             <directory>tests</directory>
         </testsuite>
-        <testsuite name="Domain Test Suite">
-            <directory>src/Platform/Domain/Tests</directory>
+        <testsuite name="Core Platform Test Suite">
+            <directory>src/Core/Platform/Domain/Tests</directory>
         </testsuite>
         <testsuite name="Security Component Test Suite">
-            <directory>src/Component/Security/Domain/Tests/*</directory>
-            <directory>src/Component/Security/Tests/*</directory>
+            <directory>src/Component/Security/Domain/Tests</directory>
+            <directory>src/Component/Security/Tests</directory>
         </testsuite>
     </testsuites>
 

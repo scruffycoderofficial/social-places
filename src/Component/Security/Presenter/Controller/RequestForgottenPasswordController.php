@@ -4,13 +4,14 @@ declare(strict_types=1);
 
 namespace BeyondCapable\Component\Security\Presenter\Controller
 {
-    use BeyondCapable\Platform\Domain\Exception\InvalidArgumentException;
     use BeyondCapable\Component\Security\Presenter\Form\RequestForgottenPasswordType;
     use BeyondCapable\Component\Security\Presenter\Input\RequestForgottenPasswordInput;
     use BeyondCapable\Component\Security\Presenter\ViewModel\RequestForgottenPasswordViewModel;
     use BeyondCapable\Component\Security\Domain\UseCase\RequestForgottenPassword\RequestForgottenPasswordInterface;
     use BeyondCapable\Component\Security\Domain\UseCase\RequestForgottenPassword\RequestForgottenPasswordPresenterInterface;
     use BeyondCapable\Component\Security\Presenter\Responder\RequestForgottenPassword\RequestForgottenPasswordResponderInterface;
+
+    use BeyondCapable\Core\Platform\Domain\Exception\InvalidArgumentException;
 
     use Symfony\Component\Form\FormError;
     use Symfony\Component\HttpFoundation\Request;

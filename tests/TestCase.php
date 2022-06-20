@@ -1,13 +1,22 @@
 <?php
 
+declare(strict_types=1);
+
 namespace BeyondCapable\Tests
 {
+    use BeyondCapable\Core\Platform\TestWork\FixtureAwareTestCase;
+    use BeyondCapable\Core\Platform\TestWork\Concern\InteractsWithDatabase;
+
     use Doctrine\ORM\EntityManager;
+
     use Doctrine\ORM\Tools\SchemaTool;
     use Doctrine\ORM\Tools\ToolsException;
-    use BeyondCapable\Platform\TestWork\FixtureAwareTestCase;
-    use BeyondCapable\Platform\TestWork\Concern\InteractsWithDatabase;
 
+    /**
+     * Class TestCase
+     *
+     * @package BeyondCapable\Tests
+     */
     abstract class TestCase extends FixtureAwareTestCase
     {
         use InteractsWithDatabase;

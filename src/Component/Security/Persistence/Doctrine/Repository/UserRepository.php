@@ -5,11 +5,13 @@ declare(strict_types=1);
 namespace BeyondCapable\Component\Security\Persistence\Doctrine\Repository
 {
     use BeyondCapable\Component\Security\Domain\Entity\User;
-    use BeyondCapable\Platform\Domain\ValueObject\Token\UuidToken;
-    use BeyondCapable\Platform\Domain\ValueObject\Email\EmailAddress;
     use BeyondCapable\Component\Security\Domain\Contract\Gateway\UserGateway;
 
+    use BeyondCapable\Core\Platform\Domain\ValueObject\Token\UuidToken;
+    use BeyondCapable\Core\Platform\Domain\ValueObject\Email\EmailAddress;
+
     use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+
     use Doctrine\Persistence\ManagerRegistry;
 
     /**

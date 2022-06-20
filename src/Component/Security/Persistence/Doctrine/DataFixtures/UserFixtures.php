@@ -5,15 +5,17 @@ declare(strict_types=1);
 namespace BeyondCapable\Component\Security\Persistence\Doctrine\DataFixtures
 {
     use BeyondCapable\Component\Security\Domain\Entity\User;
-    use BeyondCapable\Platform\Domain\ValueObject\Date\DateTime;
-    use BeyondCapable\Platform\Domain\ValueObject\Email\EmailAddress;
-    use BeyondCapable\Platform\Domain\Exception\InvalidArgumentException;
-    use BeyondCapable\Platform\Domain\ValueObject\Identifier\UuidIdentifier;
     use BeyondCapable\Component\Security\Domain\ValueObject\Password\PlainPassword;
     use BeyondCapable\Component\Security\Domain\Contract\PasswordHasher\PasswordHasherInterface;
 
-    use Doctrine\Persistence\ObjectManager;
+    use BeyondCapable\Core\Platform\Domain\ValueObject\Date\DateTime;
+    use BeyondCapable\Core\Platform\Domain\ValueObject\Email\EmailAddress;
+    use BeyondCapable\Core\Platform\Domain\Exception\InvalidArgumentException;
+    use BeyondCapable\Core\Platform\Domain\ValueObject\Identifier\UuidIdentifier;
+
     use Doctrine\Bundle\FixturesBundle\Fixture;
+
+    use Doctrine\Persistence\ObjectManager;
 
     /**
      * Class UserFixtures
