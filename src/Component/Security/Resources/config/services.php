@@ -17,7 +17,7 @@ return function (ContainerConfigurator $container) {
         ->autowire();
 
     $container
-        ->load('BeyondCapable\\Component\\Security\\', __DIR__.'/../../../../')
+        ->load('BeyondCapable\\Component\\Security\\', __DIR__.'/../../../../../../')
         ->exclude([
             __DIR__.'/../',
             __DIR__.'/../../Domain/ValueObject',
@@ -27,9 +27,9 @@ return function (ContainerConfigurator $container) {
             __DIR__.'/../../Presenter/ViewModel',
             __DIR__.'/../../Presenter/Input',
             __DIR__.'/../../Presenter/Controller',
-            __DIR__.'/../../Infrastructure/Symfony/Security/User/UserProxy.php',
-            __DIR__.'/../../Infrastructure/Symfony/Security/Authenticator/Passport/PasswordCredentials.php',
-            __DIR__.'/../../Infrastructure/Tests',
+            __DIR__.'/../../Core/User/UserProxy.php',
+            __DIR__.'/../../Core/Authenticator/Passport/PasswordCredentials.php',
+            __DIR__.'/../../Core/Tests',
         ]);
 
     $container

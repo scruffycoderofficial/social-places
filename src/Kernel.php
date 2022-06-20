@@ -6,6 +6,7 @@ namespace BeyondCapable
 {
     use Exception;
 
+    use Generator;
     use Symfony\Bundle\FrameworkBundle\Kernel\MicroKernelTrait;
 
     use Symfony\Component\Config\Loader\LoaderInterface;
@@ -23,6 +24,20 @@ namespace BeyondCapable
         use MicroKernelTrait;
 
         private const CONFIG_EXITS = '.{php,xml,yaml,yml}';
+
+        /**
+         * {@inheritdoc}
+         */
+        public function registerBundles(): Generator|array
+        {
+            $contents = require $this->getProjectDir().'/src/Core/Platform/Resources/config/bundles.php';
+
+            foreach ($contents as $class => $envs) {
+                if (isset($envs['all']) || isset($envs[$this->environment])) {
+                    yield new $class();
+                }
+            }
+        }
 
         /**
          * @param ContainerBuilder $container

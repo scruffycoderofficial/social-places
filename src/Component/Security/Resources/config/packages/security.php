@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+
 use BeyondCapable\Component\Security\Core\User\Checker;
 use BeyondCapable\Component\Security\Core\User\Provider;
 use BeyondCapable\Component\Security\Core\Authenticator\Authenticator;

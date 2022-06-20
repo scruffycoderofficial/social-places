@@ -1,4 +1,5 @@
 {
+    "name": "beyond-capable/platform",
     "type": "project",
     "license": "proprietary",
     "minimum-stability": "stable",
@@ -103,9 +104,10 @@
         },
         "post-install-cmd": [
             "@auto-scripts",
-            "mkdir -p src/Core/Platform/Resources/config/jwt",
-            "openssl genrsa -out src/Core/Platform/Resources/config/jwt/private.pem 4096",
-            "openssl rsa -pubout -in src/Core/Platform/Resources/config/jwt/private.pem -out src/Core/Platform/Resources/config/jwt/public.pem",
+            "mkdir -p src/Component/Security/Resources/config/jwt",
+            "openssl genrsa -out src/Component/Security/Resources/config/jwt/private.pem 4096",
+            "openssl rsa -pubout -in src/Component/Security/Resources/config/jwt/private.pem -out src/Component/Security/Resources/config/jwt/public.pem",
+            "chmod -R 775 src/Component/Security/Resources/config/",
             "chmod -R 775 src/Core/Platform/Resources/config/"
         ],
         "post-update-cmd": [

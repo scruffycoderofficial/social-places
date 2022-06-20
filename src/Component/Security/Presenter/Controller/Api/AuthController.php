@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace BeyondCapable\Core\Platform\Presenter\Controller\Api
+namespace BeyondCapable\Component\Security\Presenter\Controller\Api
 {
     use BeyondCapable\Component\Security\Domain\Entity\User;
 

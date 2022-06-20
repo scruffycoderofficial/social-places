@@ -29,8 +29,8 @@
             <directory>src/Core/Platform/Domain/Tests</directory>
         </testsuite>
         <testsuite name="Security Component Test Suite">
-            <directory>src/Component/Security/Domain/Tests/*</directory>
-            <directory>src/Component/Security/Tests/*</directory>
+            <directory>src/Component/Security/Domain/Tests</directory>
+            <directory>src/Component/Security/Tests</directory>
         </testsuite>
     </testsuites>
 
