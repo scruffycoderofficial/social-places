@@ -30,7 +30,7 @@ namespace BeyondCapable
          */
         public function registerBundles(): Generator|array
         {
-            $contents = require $this->getProjectDir().'/src/Core/Platform/Resources/config/bundles.php';
+            $contents = require $this->getProjectDir().'/src/bundles.php';
 
             foreach ($contents as $class => $envs) {
                 if (isset($envs['all']) || isset($envs[$this->environment])) {
@@ -69,14 +69,14 @@ namespace BeyondCapable
             $confDir = $this->configDir();
 
             if (\is_dir($confDir . '/routes/')) {
-                $routes->import($confDir . '/routes/*' . self::CONFIG_EXITS, '/');
+                $routes->import($confDir . '/routes/*' . self::CONFIG_EXITS);
             }
 
             if (\is_dir($confDir . '/routes/' . $this->environment)) {
-                $routes->import($confDir . '/routes/' . $this->environment . '/**/*' . self::CONFIG_EXITS, '/');
+                $routes->import($confDir . '/routes/' . $this->environment . '/**/*' . self::CONFIG_EXITS);
             }
 
-            $routes->import($confDir . '/routes' . self::CONFIG_EXITS, '/');
+            $routes->import($confDir . '/routes' . self::CONFIG_EXITS);
         }
 
         private function configDir(): string

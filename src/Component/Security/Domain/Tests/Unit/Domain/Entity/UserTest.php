@@ -5,14 +5,11 @@ declare(strict_types=1);
 namespace BeyondCapable\Component\Security\Domain\Tests\Unit\Domain\Entity
 {
     use BeyondCapable\Component\Security\Domain\Entity\User;
-
     use BeyondCapable\Component\Security\Domain\ValueObject\Password\PlainPassword;
     use BeyondCapable\Component\Security\Domain\ValueObject\Password\HashedPassword;
-
     use BeyondCapable\Component\Security\Domain\Tests\Fixtures\Core\PasswordHasher;
 
     use BeyondCapable\Core\Platform\Domain\Exception\InvalidArgumentException;
-
     use BeyondCapable\Core\Platform\Domain\ValueObject\Date\DateTime;
     use BeyondCapable\Core\Platform\Domain\ValueObject\Email\EmailAddress;
     use BeyondCapable\Core\Platform\Domain\ValueObject\Identifier\UuidIdentifier;

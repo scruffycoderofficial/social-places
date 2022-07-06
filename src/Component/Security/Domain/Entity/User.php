@@ -15,12 +15,16 @@ namespace BeyondCapable\Component\Security\Domain\Entity
     use BeyondCapable\Component\Security\Domain\ValueObject\Password\HashedPassword;
     use BeyondCapable\Component\Security\Domain\Contract\PasswordHasher\PasswordHasherInterface;
 
+    use Symfony\Component\Security\Core\User\UserInterface;
+    use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
+
     /**
      * Class User
      *
      * @package BeyondCapable\Component\Security\Domain\Entity
+     * @method string getUserIdentifier()
      */
-    class User
+    class User implements UserInterface, PasswordAuthenticatedUserInterface
     {
         private function __construct(
             public UuidIdentifier $identifier,
@@ -92,9 +96,53 @@ namespace BeyondCapable\Component\Security\Domain\Entity
             $this->forgottenPasswordToken = null;
         }
 
-        public function getUserName()
+        public function getUserName(): string
         {
             return $this->username;
+        }
+
+        public function getRoles(): array
+        {
+            $roles = $this->roles;
+
+            // guarantees that a user always has at least one role for security
+            if (empty($roles)) {
+                $roles[] = 'ROLE_USER';
+            }
+
+            return array_unique($roles);
+        }
+
+        public function getPassword(): ?string
+        {
+            // TODO: Implement getPassword() method.
+        }
+
+        public function getSalt()
+        {
+            // We're using bcrypt in security.yaml to encode the password, so
+            // the salt value is built-in and you don't have to generate one
+            // See https://en.wikipedia.org/wiki/Bcrypt
+
+            return null;
+        }
+
+        public function eraseCredentials()
+        {
+            // if you had a plainPassword property, you'd nullify it here
+            // $this->plainPassword = null;
+        }
+
+        public function __serialize(): array
+        {
+            // add $this->salt too if you don't use Bcrypt or Argon2i
+            return [$this->id, $this->username, $this->password];
+        }
+
+        public function __unserialize(array $data): void
+        {
+            // add $this->salt too if you don't use Bcrypt or Argon2i
+            [$this->id, $this->username, $this->password] = $data;
         }
     }
 }

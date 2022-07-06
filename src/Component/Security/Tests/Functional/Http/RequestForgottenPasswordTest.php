@@ -5,10 +5,9 @@ declare(strict_types=1);
 namespace BeyondCapable\Component\Security\Tests\Functional\Http
 {
     use BeyondCapable\Component\Security\Domain\Entity\User;
+    use BeyondCapable\Component\Security\Domain\Contract\Gateway\UserGateway;
 
     use BeyondCapable\Core\Platform\Domain\ValueObject\Email\EmailAddress;
-
-    use BeyondCapable\Component\Security\Domain\Contract\Gateway\UserGateway;
 
     use Symfony\Component\HttpFoundation\Request;
     use Symfony\Component\HttpFoundation\Response;

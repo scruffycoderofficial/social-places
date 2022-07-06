@@ -7,7 +7,7 @@ Feature: As a user I want to request a forgotten password In order to reset my p
     Given I registered with my email address user+1@email.com
     When I request a forgotten password with user+0@email.com
     Then I get an error that tells me "This email does not exist."
-  Scenario: Should not create a forgotten password token because a request was already made less than 24 hours ago
+  Sscenario: Should not create a forgotten password token because a request was already made less than 24 hours ago
     Given I registered with my email address user+1@email.com
     And I have already request a forgotten password 12 hours ago
     When I request a forgotten password with user+1@email.com

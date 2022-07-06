@@ -26,6 +26,10 @@ namespace BeyondCapable\Component\Security\Persistence\Doctrine\Repository
             parent::__construct($registry, User::class);
         }
 
+        /**
+         * @param EmailAddress $email
+         * @return User|null
+         */
         public function getUserByEmail(EmailAddress $email): ?User
         {
             return $this->findOneBy(['email' => $email]);

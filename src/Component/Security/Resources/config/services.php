@@ -11,13 +11,13 @@ use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigura
 
 return function (ContainerConfigurator $container) {
     $container = $container->services()->defaults()
-        ->bind('string $emailNoReply', param('mailer.no_reply'))
+        ->bind('string $emailNoReply', 'no-reply@beyond-capable.com')
         ->public()
         ->autoconfigure()
         ->autowire();
 
     $container
-        ->load('BeyondCapable\\Component\\Security\\', __DIR__.'/../../../../../../')
+        ->load('BeyondCapable\\', __DIR__.'/../../../../')
         ->exclude([
             __DIR__.'/../',
             __DIR__.'/../../Domain/ValueObject',
@@ -29,7 +29,7 @@ return function (ContainerConfigurator $container) {
             __DIR__.'/../../Presenter/Controller',
             __DIR__.'/../../Core/User/UserProxy.php',
             __DIR__.'/../../Core/Authenticator/Passport/PasswordCredentials.php',
-            __DIR__.'/../../Core/Tests',
+            __DIR__.'/../../Tests',
         ]);
 
     $container

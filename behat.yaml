@@ -1,0 +1,13 @@
+default:
+  suites:
+    core:
+      contexts:
+        - 'BeyondCapable\Core\Platform\TestWork\Acceptence\Context\FeatureContext'
+      paths:
+        - '%paths.base%/src/Core/Platform/TestWork/Acceptance'
+
+    security:
+      contexts:
+        - 'BeyondCapable\Component\Security\Domain\Tests\Acceptance\Context\SecurityContext'
+      paths:
+        - '%paths.base%/src/Component/Security/Domain/Tests/Acceptance'

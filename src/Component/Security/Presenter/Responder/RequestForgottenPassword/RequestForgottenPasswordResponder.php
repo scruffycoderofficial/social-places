@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace BeyondCapable\Component\Security\Presenter\Responder\RequestForgottenPassword
 {
     use BeyondCapable\Core\Platform\Presenter\Responder\TwigResponder;
+
     use BeyondCapable\Component\Security\Presenter\ViewModel\RequestForgottenPasswordViewModel;
 
     use Symfony\Component\HttpFoundation\Response;

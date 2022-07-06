@@ -5,29 +5,26 @@ declare(strict_types=1);
 namespace BeyondCapable\Component\Security\Domain\Tests\Acceptance\Context
 {
     use BeyondCapable\Component\Security\Domain\Entity\User;
-
     use BeyondCapable\Component\Security\Domain\UseCase\ResetPassword\ResetPassword;
     use BeyondCapable\Component\Security\Domain\UseCase\RequestForgottenPassword\RequestForgottenPassword;
-
     use BeyondCapable\Component\Security\Domain\Tests\Fixtures\Domain\Repository\UserRepository;
     use BeyondCapable\Component\Security\Domain\Tests\Fixtures\Presenter\Input\ResetPasswordInput;
     use BeyondCapable\Component\Security\Domain\Tests\Fixtures\Presenter\Input\RequestForgottenPasswordInput;
     use BeyondCapable\Component\Security\Domain\Tests\Fixtures\Presenter\RequestForgottenPasswordPresenter;
+    use BeyondCapable\Component\Security\Domain\Tests\Fixtures\Core\PasswordHasher;
+    use BeyondCapable\Component\Security\Domain\ValueObject\Password\PlainPassword;
+    use BeyondCapable\Component\Security\Domain\ValueObject\Password\HashedPassword;
 
     use BeyondCapable\Core\Platform\Domain\ValueObject\Date\DateTime;
     use BeyondCapable\Core\Platform\Domain\ValueObject\Date\Interval;
     use BeyondCapable\Core\Platform\Domain\ValueObject\Email\EmailAddress;
     use BeyondCapable\Core\Platform\Domain\ValueObject\Identifier\UuidIdentifier;
 
-    use BeyondCapable\Component\Security\Domain\Tests\Fixtures\Core\PasswordHasher;
-
-    use BeyondCapable\Component\Security\Domain\ValueObject\Password\PlainPassword;
-    use BeyondCapable\Component\Security\Domain\ValueObject\Password\HashedPassword;
-
     use Exception;
     use Behat\Behat\Context\Context;
 
     use PHPUnit\Framework\Assert;
+    use Symfony\Component\HttpKernel\KernelInterface;
 
     /**
      * Class SecurityContext
@@ -36,6 +33,12 @@ namespace BeyondCapable\Component\Security\Domain\Tests\Acceptance\Context
      */
     final class SecurityContext implements Context
     {
+
+        /** @var KernelInterface */
+        private $kernel;
+
+        private $methodCallName;
+
         private User $registeredUser;
 
         private string $email;
@@ -46,8 +49,10 @@ namespace BeyondCapable\Component\Security\Domain\Tests\Acceptance\Context
 
         private PasswordHasher $passwordHasher;
 
-        public function __construct()
+        public function __construct(KernelInterface $kernel)
         {
+            $this->kernel = $kernel;
+
             $this->passwordHasher = new PasswordHasher();
         }
 
@@ -164,6 +169,34 @@ namespace BeyondCapable\Component\Security\Domain\Tests\Acceptance\Context
             } catch (Exception $exception) {
                 Assert::assertEquals($errorMessage, $exception->getMessage());
             }
+        }
+
+        /**
+         * @When an instance of the Kernel class is loaded
+         */
+        public function anInstanceOfTheKernelClassIsLoaded()
+        {
+            return !is_null($this->kernel);
+        }
+
+        /**
+         * @When the (.+) method is called
+         */
+        public function theMethodIsCalled(string $methodName)
+        {
+            $this->methodCallName = $methodName;
+
+            return method_exists($this, $methodName);
+        }
+
+        /**
+         * @Then the result should be positive
+         */
+        public function theResultShouldBePositive()
+        {
+            $methodCallName = $this->methodCallName;
+
+            return is_array($this->kernel->{$methodCallName}());
         }
     }
 }

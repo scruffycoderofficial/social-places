@@ -6,6 +6,7 @@ namespace BeyondCapable\Component\Security\Presenter\Controller\Api
 {
     use Symfony\Component\HttpFoundation\Request;
     use Symfony\Component\HttpFoundation\JsonResponse;
+
     use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
     /**

@@ -5,8 +5,9 @@ declare(strict_types=1);
 namespace BeyondCapable\Component\Security\Domain\UseCase\RequestForgottenPassword
 {
     use BeyondCapable\Component\Security\Domain\Entity\User;
-    use BeyondCapable\Platform\Domain\Exception\InvalidArgumentException;
     use BeyondCapable\Component\Security\Domain\Contract\Gateway\UserGateway;
+
+    use BeyondCapable\Core\Platform\Domain\Exception\InvalidArgumentException;
 
     /**
      * Class RequestForgottenPassword

@@ -6,7 +6,6 @@ namespace BeyondCapable\Component\Security\Domain\Tests\Unit\Domain\ValueObject\
 {
     use BeyondCapable\Component\Security\Domain\ValueObject\Password\PlainPassword;
     use BeyondCapable\Component\Security\Domain\ValueObject\Password\HashedPassword;
-
     use BeyondCapable\Component\Security\Domain\Contract\PasswordHasher\PasswordHasherInterface;
 
     use PHPUnit\Framework\TestCase;

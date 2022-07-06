@@ -5,10 +5,8 @@ declare(strict_types=1);
 namespace BeyondCapable\Component\Security\Domain\Tests\Fixtures\Presenter\Input
 {
     use BeyondCapable\Component\Security\Domain\Entity\User;
-
-    use BeyondCapable\Component\Security\Domain\UseCase\ResetPassword\ResetPasswordInputInterface;
-
     use BeyondCapable\Component\Security\Domain\ValueObject\Password\PlainPassword;
+    use BeyondCapable\Component\Security\Domain\UseCase\ResetPassword\ResetPasswordInputInterface;
 
     /**
      * Class ResetPasswordInput

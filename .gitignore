@@ -31,6 +31,7 @@ public/build/
 
 ###> lexik/jwt-authentication-bundle ###
 /config/jwt/*.pem
+src/Component/Security/Resources/config/jwt/*.pem
 ###< lexik/jwt-authentication-bundle ###
 
 ###> miscelleneous ###
@@ -42,3 +43,7 @@ public/docs/
 ###> docker ###
 /data
 ###> docker ###
+
+###> friends-of-behat/symfony-extension ###
+/behat.yml
+###< friends-of-behat/symfony-extension ###

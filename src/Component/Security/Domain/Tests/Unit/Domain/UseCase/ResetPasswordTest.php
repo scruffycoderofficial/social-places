@@ -5,19 +5,13 @@ declare(strict_types=1);
 namespace BeyondCapable\Component\Security\Domain\Tests\Unit\Domain\UseCase
 {
     use BeyondCapable\Component\Security\Domain\Entity\User;
-
     use BeyondCapable\Component\Security\Domain\Tests\Fixtures\Core\PasswordHasher;
-
     use BeyondCapable\Component\Security\Domain\Tests\Fixtures\Domain\Repository\UserRepository;
-
     use BeyondCapable\Component\Security\Domain\Tests\Fixtures\Presenter\Input\ResetPasswordInput;
-
     use BeyondCapable\Component\Security\Domain\UseCase\ResetPassword\ResetPassword;
     use BeyondCapable\Component\Security\Domain\UseCase\ResetPassword\ResetPasswordInterface;
-
     use BeyondCapable\Component\Security\Domain\ValueObject\Password\HashedPassword;
     use BeyondCapable\Component\Security\Domain\ValueObject\Password\PlainPassword;
-
     use BeyondCapable\Core\Platform\Domain\ValueObject\Email\EmailAddress;
     use BeyondCapable\Core\Platform\Domain\ValueObject\Identifier\UuidIdentifier;
 
