@@ -22,4 +22,6 @@ return [
     \OldSound\RabbitMqBundle\OldSoundRabbitMqBundle::class => ['all' => true],
     \DAMA\DoctrineTestBundle\DAMADoctrineTestBundle::class => ['dev' => true, 'test' => true],
     \FriendsOfBehat\SymfonyExtension\Bundle\FriendsOfBehatSymfonyExtensionBundle::class => ['test' => true],
+
+
 ];
