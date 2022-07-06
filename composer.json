@@ -87,9 +87,11 @@
     },
     "autoload": {
         "psr-4": {
-            "BeyondCapable\\": [ "src/" ],
-            "Oro\\": "core/"
-        }
+            "BeyondCapable\\": [ "src/" ]
+        },
+        "classmap": [
+            "core/Oro/"
+        ]
     },
     "autoload-dev": {
         "psr-4": {
