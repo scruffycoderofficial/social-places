@@ -23,5 +23,5 @@ return [
     \DAMA\DoctrineTestBundle\DAMADoctrineTestBundle::class => ['dev' => true, 'test' => true],
     \FriendsOfBehat\SymfonyExtension\Bundle\FriendsOfBehatSymfonyExtensionBundle::class => ['test' => true],
 
-
+    //Oro Bundles listing goes here
 ];
