@@ -4,7 +4,7 @@
 use Doctrine\DBAL\Configuration;
 use Doctrine\DBAL\DriverManager;
 
-require_once __DIR__ . '/../vendor/autoload.php';
+require_once __DIR__ . '/../../vendor/autoload.php';
 
 $config = new Configuration();
 

@@ -81,7 +81,12 @@ namespace BeyondCapable
 
         private function configDir(): string
         {
-            return $this->getProjectDir().'/src/**/*/Resources/config';
+            /**
+             * Only platform related configurations should be stored within
+             * this directory, any other form of resources should be stored
+             * within the relevant Component Bundle.
+             */
+            return $this->getProjectDir().'/src/core/Platform/Resources/config';
         }
     }
 }

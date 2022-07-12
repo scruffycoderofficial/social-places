@@ -30,8 +30,8 @@ public/build/
 ###< symfony/webpack-encore-bundle ###
 
 ###> lexik/jwt-authentication-bundle ###
-/config/jwt/*.pem
-src/Component/Security/Resources/config/jwt/*.pem
+src/Core/Platform/Resources/jwt/private.pem
+src/Core/Platform/Resources/jwt/public.pem
 ###< lexik/jwt-authentication-bundle ###
 
 ###> miscelleneous ###

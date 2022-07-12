@@ -6,7 +6,7 @@ use Symfony\Component\Mailer\Mailer;
 use Symfony\Component\Mailer\Transport;
 use Symfony\Component\Mailer\Exception\TransportExceptionInterface;
 
-require_once __DIR__ . '/../vendor/autoload.php';
+require_once __DIR__ . '/../../vendor/autoload.php';
 
 $transport = Transport::fromDsn('smtp://mailhog:1025');
 
