@@ -1,4 +1,0 @@
-dynamic-imports:
-    oroconfig:
-        - oroconfig/js/app/views/configuration-tree-view
-        - oroconfig/js/form/config-form

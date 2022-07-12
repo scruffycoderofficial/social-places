@@ -1,4 +1,0 @@
-Oro\Bundle\NoteBundle\Entity\Note:
-    properties:
-        message:
-            - Oro\Bundle\FormBundle\Validator\Constraints\HtmlNotBlank: ~

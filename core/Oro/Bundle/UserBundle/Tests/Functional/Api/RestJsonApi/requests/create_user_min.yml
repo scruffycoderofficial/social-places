@@ -1,7 +1,0 @@
-data:
-    type: users
-    attributes:
-        username: testapiuser
-        firstName: Bob
-        lastName: Doo
-        email: test2341@test.com

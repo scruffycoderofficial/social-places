@@ -1,8 +1,0 @@
-monolog:
-    channels:
-        - custom_channel
-    handlers:
-        custom_handler:
-            type: test
-            channels:
-                - custom_channel

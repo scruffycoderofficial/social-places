@@ -1,3 +1,0 @@
-dynamic-imports:
-    orocache:
-        - orocache/js/app/components/invalidate-cache-component

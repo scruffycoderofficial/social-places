@@ -1,4 +1,0 @@
-oro_integration_bundle:
-    resource:     "@OroIntegrationBundle/Controller"
-    type:         annotation
-    prefix:       /

@@ -1,4 +1,0 @@
-dynamic-imports:
-    oroactivitylist:
-        - oroactivitylist/js/app/components/activity-list-component
-        - oroactivitylist/js/app/views/activity-condition-view

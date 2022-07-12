@@ -1,4 +1,0 @@
-Oro\Bundle\OrganizationBundle\Entity\BusinessUnit:
-  businessUnit:
-    name: 'Child Business Unit'
-    organization: '@organization'

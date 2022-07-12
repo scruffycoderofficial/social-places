@@ -1,4 +1,0 @@
-dynamic-imports:
-    ororeminder:
-        - ororeminder/js/app/components/reminder-show-component
-        - ororeminder/js/reminder-handler
