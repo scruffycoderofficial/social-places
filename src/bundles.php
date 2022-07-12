@@ -27,7 +27,6 @@ return [
      * Oro Bundles listing, All these bundles are static as
      * opposed to any of the above bundles
      */
-
     \Oro\Bundle\ActionBundle\OroActionBundle::class => ['all' => true],
     \Oro\Bundle\ActivityBundle\OroActivityBundle::class  => ['all' => true],
     \Oro\Bundle\ActivityListBundle\Model\Accessor\ActivityAccessor::class  => ['all' => true],

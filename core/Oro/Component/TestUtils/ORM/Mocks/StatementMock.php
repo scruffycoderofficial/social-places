@@ -2,6 +2,8 @@
 
 namespace Oro\Component\TestUtils\ORM\Mocks;
 
+use Doctrine\DBAL\Driver\Result;
+
 /**
  * This class is a clone of namespace Doctrine\Tests\Mocks\StatementMock that is excluded from doctrine
  * package since v2.4.
@@ -25,7 +27,7 @@ class StatementMock implements \IteratorAggregate, \Doctrine\DBAL\Driver\Stateme
     {
     }
 
-    public function execute($params = null)
+    public function execute($params = null): Result
     {
     }
 

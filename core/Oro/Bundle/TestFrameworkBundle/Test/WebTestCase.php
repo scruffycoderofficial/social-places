@@ -718,7 +718,7 @@ abstract class WebTestCase extends BaseWebTestCase
      *
      * @return ContainerInterface
      */
-    protected static function getContainer()
+    protected static function getContainer(): ContainerInterface
     {
         return self::$container;
     }
