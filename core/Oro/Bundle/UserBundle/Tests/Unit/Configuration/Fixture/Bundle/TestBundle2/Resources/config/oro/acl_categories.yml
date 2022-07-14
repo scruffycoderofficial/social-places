@@ -1,5 +1,0 @@
-acl_categories:
-    category6:
-        label: category6.label
-        tab: true
-        priority: 5

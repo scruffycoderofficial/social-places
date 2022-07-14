@@ -1,4 +1,0 @@
-features:
-    web_api:
-        routes:
-            - oro_user_apigen

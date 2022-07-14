@@ -1,5 +1,0 @@
-aliases:
-    oro/filter/search-boolean-filter$: orosearch/js/filter/search-boolean-filter
-dynamic-imports:
-    orofilter:
-        - oro/filter/search-boolean-filter

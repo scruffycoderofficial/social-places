@@ -1,5 +1,0 @@
-nelmio_security:
-    # add possibility to show demo site in frame
-    clickjacking:
-        paths:
-            '^/.*': SAMEORIGIN

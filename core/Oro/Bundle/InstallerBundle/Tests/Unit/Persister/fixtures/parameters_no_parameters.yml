@@ -1,2 +1,0 @@
-imports:
-    - { resource: Tests/Behat/parameters.yml }

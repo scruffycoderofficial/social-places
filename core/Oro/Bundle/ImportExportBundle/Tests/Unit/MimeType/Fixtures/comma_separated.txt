@@ -1,2 +1,0 @@
-column1,column2
-value_1,value2

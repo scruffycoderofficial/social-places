@@ -1,7 +1,3 @@
-controllers:
-    resource: ../../../../../src/Core/Platform/Presenter/Controller/
-    type: annotation
-
 kernel:
-    resource: ../../../../../src/Kernel.php
+    resource: ../../../../../Kernel.php
     type: annotation

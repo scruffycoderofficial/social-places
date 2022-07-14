@@ -1,8 +1,0 @@
-css:
-    inputs:
-        # Settings
-        - 'bundles/orodatagrid/css/scss/settings/global-settings.scss'
-
-        # Styles
-        - 'bundles/orodatagrid/css/scss/main.scss'
-        # - 'bundles/orodatagrid/css/scss/inline-editing-help.scss' component temporary not in use

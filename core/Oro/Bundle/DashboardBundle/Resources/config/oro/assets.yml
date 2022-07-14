@@ -1,7 +1,0 @@
-css:
-    inputs:
-        # Variables
-        - 'bundles/orodashboard/css/scss/variables/variables.scss'
-
-        # Styles
-        - 'bundles/orodashboard/css/scss/main.scss'

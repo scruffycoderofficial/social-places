@@ -1,7 +1,0 @@
-oro_permissions:
-    CONFIGURE:
-        label: oro.workflow.permission.update_configuration.label
-        group_names: ""
-        apply_to_all: false
-        apply_to_entities:
-            - 'Oro\Bundle\WorkflowBundle\Entity\WorkflowDefinition'

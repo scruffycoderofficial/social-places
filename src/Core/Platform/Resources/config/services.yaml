@@ -21,3 +21,15 @@ services:
 
     BeyondCapable\Core\Platform\Domain\Entity\Repository\:
         resource: '../../../../../src/Core/Platform/Persistence/Doctrine/Repository'
+
+    beyond_capable.core.platform.presenter.controller.site.default:
+        class: BeyondCapable\Core\Platform\Presenter\Controller\Site\DefaultController
+        public: true
+
+    beyond_capable.core.platform.presenter.controller.site.portfolio:
+        class: BeyondCapable\Core\Platform\Presenter\Controller\Site\PortfolioController
+        public: true
+
+    beyond_capable.core.platform.presenter.controller.dashboard:
+        class: BeyondCapable\Core\Platform\Presenter\Controller\DashboardController
+        public: true

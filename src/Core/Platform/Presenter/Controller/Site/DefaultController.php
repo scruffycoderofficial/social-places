@@ -5,8 +5,6 @@ declare(strict_types=1);
 namespace BeyondCapable\Core\Platform\Presenter\Controller\Site
 {
     use Symfony\Component\HttpFoundation\Response;
-    use Symfony\Component\Routing\Annotation\Route;
-
     use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
     /**
@@ -16,7 +14,6 @@ namespace BeyondCapable\Core\Platform\Presenter\Controller\Site
      */
     class DefaultController extends AbstractController
     {
-        #[Route('/', name: 'default')]
         public function index(): Response
         {
             return $this->render('site/default/index.html.twig');

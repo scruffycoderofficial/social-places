@@ -1,5 +1,0 @@
-oro:
-    orowindows:
-        dialog:
-            close:
-                aria_label: 'Close the Dialog'

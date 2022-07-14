@@ -1,6 +1,0 @@
-Oro\Bundle\TranslationBundle\Entity\Language:
-    dutch_lang:
-        code: 'nl'
-        enabled: true
-        organization: '@organization'
-        owner: '@admin'
