@@ -4,9 +4,13 @@ declare(strict_types=1);
 
 namespace BeyondCapable\Core\Platform\Presenter\Controller
 {
+
+    use BeyondCapable\Core\Platform\Presenter\Controller\Admin\PeopleCrudController;
     use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
+    use EasyCorp\Bundle\EasyAdminBundle\Contracts\Controller\DashboardControllerInterface;
     use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
 
+    use EasyCorp\Bundle\EasyAdminBundle\Router\AdminUrlGenerator;
     use Symfony\Component\HttpFoundation\Response;
 
     /**
@@ -14,7 +18,8 @@ namespace BeyondCapable\Core\Platform\Presenter\Controller
      *
      * @package BeyondCapable\Core\Platform\Presenter\Controller
      */
-    class AdminController extends AbstractDashboardController
+    class DashboardController extends AbstractDashboardController
+        implements DashboardControllerInterface
     {
         public function index(): Response
         {
@@ -25,9 +30,10 @@ namespace BeyondCapable\Core\Platform\Presenter\Controller
         {
             return Dashboard::new()
                 ->setTitle('Capable Platform')
-                ->disableDarkMode()
-                ->generateRelativeUrls();
+                ->disableDarkMode();
         }
+
+        public function setDashboard(){}
 
         /**
          * {@inheritDoc}

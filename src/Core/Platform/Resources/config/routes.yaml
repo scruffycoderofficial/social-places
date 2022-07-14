@@ -16,5 +16,5 @@ portfolio_site:
 platform_admin:
   path: /admin
   defaults:
-    _controller: beyond_capable.core.platform.presenter.controller.admin:index
+    _controller: beyond_capable.core.platform.presenter.controller.dashboard:index
   methods: [ GET ]

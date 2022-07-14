@@ -30,6 +30,6 @@ services:
         class: BeyondCapable\Core\Platform\Presenter\Controller\Site\PortfolioController
         public: true
 
-    beyond_capable.core.platform.presenter.controller.site.admin:
-        class: BeyondCapable\Core\Platform\Presenter\Controller\Site\AdminController
+    beyond_capable.core.platform.presenter.controller.dashboard:
+        class: BeyondCapable\Core\Platform\Presenter\Controller\DashboardController
         public: true

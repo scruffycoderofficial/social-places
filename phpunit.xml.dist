@@ -28,19 +28,6 @@
         <testsuite name="Core Platform Test Suite">
             <directory>src/Core/Platform/Domain/Tests</directory>
         </testsuite>
-        <testsuite name="Security Component Test Suite">
-            <directory>src/Component/Security/Domain/Tests</directory>
-            <directory>src/Component/Security/Tests</directory>
-        </testsuite>
-        <testsuite name="Core Ora Platform Test Suite">
-            <directory>core/Oro/*/Tests/Unit</directory>
-            <directory>core/Oro/*/*/Tests/Unit</directory>
-            <directory>core/Oro/*/*/*/Tests/Unit</directory>
-            <directory>core/Oro/*/*/*/*/Tests/Unit</directory>
-            <directory>core/Oro/*/*/*/*/*/Tests/Unit</directory>
-            <directory>core/Oro/*/*/*/*/*/*/Tests/Unit</directory>
-            <directory>core/Oro/*/*/*/*/*/*/*/Tests/Unit</directory>
-        </testsuite>
     </testsuites>
 
     <coverage processUncoveredFiles="true">
