@@ -55,14 +55,14 @@
         "symfony/workflow": "5.4.*",
         "symfony/yaml": "5.4.*",
         "twig/extra-bundle": "^2.12|^3.0",
-        "twig/twig": "^2.12|^3.0",
-        "umpirsky/country-list": "^2.0"
+        "twig/twig": "^2.12|^3.0"
     },
     "require-dev": {
         "behat/behat": "^3.10",
         "dama/doctrine-test-bundle": "^7.1",
         "doctrine/doctrine-fixtures-bundle": "^3.4",
         "friends-of-behat/symfony-extension": "^2.3",
+        "fzaninotto/faker": "^1.5",
         "liip/functional-test-bundle": "^4.5",
         "phpspec/phpspec": "^7.2",
         "phpunit/phpunit": "^9.5",

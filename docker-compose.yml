@@ -139,39 +139,6 @@ services:
     networks:
       - capable-platform-network
 
-  msdb:
-    image: "mcr.microsoft.com/mssql/server"
-    expose:
-      - "1433"
-    environment:
-      ACCEPT_EULA: Y
-      SA_PASSWORD: ${SQL_PW}
-      MSSQL_PID: Express
-    networks:
-      - capable-platform-network
-
-  essbase:
-    depends_on:
-      - msdb
-    image: ${REGISTRY}/essbase:latest
-    container_name: essbase
-    ports:
-      - "9000:9000"
-    ulimits:
-      nofile:
-        hard: 32000
-        soft: 10000
-    environment:
-      EPM_ADMIN: admin
-      EPM_PASSWORD: ${EPM_PW}
-      SQL_HOST: msdb
-      SQL_USER: sa
-      SQL_PASSWORD: ${SQL_PW}
-      RESTART_EPM_AFTER_LCM_IMPORT: "false"
-      AUTO_START_ADMIN_CONSOLE: "false"
-    networks:
-      - capable-platform-network
-
 networks:
   capable-platform-network:
     driver: bridge
