@@ -4,8 +4,8 @@ namespace BeyondCapable\Core\Platform\Domain\Tests\Functional\Entity;
 
 use BeyondCapable\Core\Platform\Domain\Entity\Person;
 use BeyondCapable\Core\Platform\DataFixtures\PersonsFixture;
+use BeyondCapable\Core\Platform\Domain\Tests\Functional\FunctionalTestCase;
 use BeyondCapable\Core\Platform\TestWork\Concern\InteractsWithDatabase;
-use BeyondCapable\Core\Platform\TestWork\FixtureAwareTestCase;
 use Doctrine\ORM\Tools\ToolsException;
 
 /**
@@ -13,11 +13,9 @@ use Doctrine\ORM\Tools\ToolsException;
  *
  * @package App\Tests\Unit\Repository
  */
-class PersonTest extends FixtureAwareTestCase
+class PersonTest extends FunctionalTestCase
 {
     use InteractsWithDatabase;
-
-    private $entityManager;
 
     private $entities = [
         Person::class,
@@ -31,22 +29,20 @@ class PersonTest extends FixtureAwareTestCase
     {
         parent::setUp();
 
-        $this->entityManager = static::$kernel
-            ->getContainer()
-            ->get('doctrine')
-            ->getManager();
+        // Get EntityManager from the booted Kernel
+        $this->entityManager = $this->getEntityManager();
 
+        // Assign the SchemaTool and expected Entity classes
         $this->schemaTool = $this->getSchemaTool($this->entityManager);
+        $this->entities = $this->loadedEntityClassMetadata($this->entities);
 
-        $this->entities = $this->getClassMetadataCollection(
-            $this->entityManager,
-            $this->entities
-        );
-
+        // Create the expected tables
         $this->createTables($this->schemaTool, $this->entities);
 
+        // Add expected fixtures
         $this->addFixture(new PersonsFixture());
 
+        // Execute loaded fixtures
         $this->executeFixtures();
     }
 
