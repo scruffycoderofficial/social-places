@@ -1,46 +1,46 @@
 <?php
 
-declare(strict_types=1);
+namespace BeyondCapable\Core\Platform\Presenter\Controller;
 
-namespace BeyondCapable\Core\Platform\Presenter\Controller
+use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
+use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
+use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Annotation\Route;
+
+class DashboardController extends AbstractDashboardController
 {
-
-    use BeyondCapable\Core\Platform\Presenter\Controller\Admin\PeopleCrudController;
-    use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
-    use EasyCorp\Bundle\EasyAdminBundle\Contracts\Controller\DashboardControllerInterface;
-    use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
-
-    use EasyCorp\Bundle\EasyAdminBundle\Router\AdminUrlGenerator;
-    use Symfony\Component\HttpFoundation\Response;
-
-    /**
-     * Class AdminController
-     *
-     * @package BeyondCapable\Core\Platform\Presenter\Controller
-     */
-    class DashboardController extends AbstractDashboardController
-        implements DashboardControllerInterface
+    #[Route('/admin', name: 'admin')]
+    public function index(): Response
     {
-        public function index(): Response
-        {
-            return $this->render('admin/index.html.twig');
-        }
+        return parent::index();
 
-        public function configureDashboard(): Dashboard
-        {
-            return Dashboard::new()
-                ->setTitle('Capable Platform')
-                ->disableDarkMode();
-        }
+        // Option 1. You can make your dashboard redirect to some common page of your backend
+        //
+        // $adminUrlGenerator = $this->container->get(AdminUrlGenerator::class);
+        // return $this->redirect($adminUrlGenerator->setController(OneOfYourCrudController::class)->generateUrl());
 
-        public function setDashboard(){}
+        // Option 2. You can make your dashboard redirect to different pages depending on the user
+        //
+        // if ('jane' === $this->getUser()->getUsername()) {
+        //     return $this->redirect('...');
+        // }
 
-        /**
-         * {@inheritDoc}
-         */
-        public function configureMenuItems(): iterable
-        {
-            return [];
-        }
+        // Option 3. You can render some custom template to display a proper dashboard with widgets, etc.
+        // (tip: it's easier if your template extends from @EasyAdmin/page/content.html.twig)
+        //
+        // return $this->render('some/path/my-dashboard.html.twig');
+    }
+
+    public function configureDashboard(): Dashboard
+    {
+        return Dashboard::new()
+            ->setTitle('Html');
+    }
+
+    public function configureMenuItems(): iterable
+    {
+        yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');
+        // yield MenuItem::linkToCrud('The Label', 'fas fa-list', EntityClass::class);
     }
 }
