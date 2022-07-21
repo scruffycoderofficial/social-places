@@ -19,7 +19,7 @@ services:
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
 
-    BeyondCapable\Core\Platform\Domain\Entity\Repository\:
+    BeyondCapable\Core\Platform\Persistence\Doctrine\Repository\:
         resource: '../../../../../src/Core/Platform/Persistence/Doctrine/Repository'
 
     beyond_capable.core.platform.presenter.controller.site.default:

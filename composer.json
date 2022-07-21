@@ -59,6 +59,12 @@
     },
     "require-dev": {
         "behat/behat": "^3.10",
+        "codeception/codeception": "^4.2",
+        "codeception/module-asserts": "@dev",
+        "codeception/module-doctrine2": "@dev",
+        "codeception/module-phpbrowser": "@dev",
+        "codeception/module-rest": "@dev",
+        "codeception/module-symfony": "@dev",
         "dama/doctrine-test-bundle": "^7.1",
         "doctrine/doctrine-fixtures-bundle": "^3.4",
         "friends-of-behat/symfony-extension": "^2.3",

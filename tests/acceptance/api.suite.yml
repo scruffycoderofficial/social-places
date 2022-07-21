@@ -1,0 +1,16 @@
+actor: ApiTester
+modules:
+    enabled:
+        - Symfony:
+            kernel_class: \BeyondCapable\Kernel
+            app_path: src
+            environment: 'test'
+            part: services
+        - REST:
+            depends: Symfony
+            part: Json
+        - Doctrine2:
+            depends: Symfony
+            cleanup: true
+        - \BeyondCapable\Tests\Helper\Api
+        - Asserts
