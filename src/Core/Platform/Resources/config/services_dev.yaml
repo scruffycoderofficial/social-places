@@ -1,0 +1,4 @@
+services:
+  BeyondCapable\Core\Platform\DataFixtures\:
+    resource: '../../../../../src/Core/Platform/DataFixtures'
+    tags: ['doctrine.fixture.orm']
