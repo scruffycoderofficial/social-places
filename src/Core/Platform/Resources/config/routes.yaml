@@ -4,17 +4,17 @@
 default_site:
   path: /
   defaults:
-    _controller: beyond_capable.core.platform.presenter.controller.site.default:index
+    _controller: beyond_capable.core.platform.presenter.controller.site.default::index
   methods: [ GET ]
 
 portfolio_site:
   path: /portfolio
   defaults:
-    _controller: beyond_capable.core.platform.presenter.controller.site.portfolio:index
+    _controller: beyond_capable.core.platform.presenter.controller.site.portfolio::index
   methods: [ GET ]
 
 platform_admin:
   path: /admin
   defaults:
-    _controller: beyond_capable.core.platform.presenter.controller.dashboard:index
+    _controller: beyond_capable.core.platform.presenter.controller.dashboard::index
   methods: [ GET ]
